@@ -12,9 +12,9 @@
 		DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267B1C71C46700AC8C32 /* Amount+CoreDataProperties.m */; };
 		DB07267F1C71C46700AC8C32 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267D1C71C46700AC8C32 /* Amount.m */; };
 		DB0726811C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */; };
+		DB0726851C71DA0500AC8C32 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726841C71DA0500AC8C32 /* ViewController.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
-		DBB725511B71ED5C0078CA1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB725501B71ED5C0078CA1F /* ViewController.m */; };
 		DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725521B71ED5C0078CA1F /* Main.storyboard */; };
 		DBB725561B71ED5C0078CA1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB725551B71ED5C0078CA1F /* Images.xcassets */; };
 		DBB725591B71ED5C0078CA1F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB725571B71ED5C0078CA1F /* LaunchScreen.xib */; };
@@ -47,14 +47,14 @@
 		DB07267C1C71C46700AC8C32 /* Amount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Amount.h; sourceTree = "<group>"; };
 		DB07267D1C71C46700AC8C32 /* Amount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Amount.m; sourceTree = "<group>"; };
 		DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2toModel3.xcmappingmodel; sourceTree = "<group>"; };
+		DB0726831C71DA0500AC8C32 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DB0726841C71DA0500AC8C32 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBB7254A1B71ED5C0078CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DBB7254C1B71ED5C0078CA1F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DBB7254F1B71ED5C0078CA1F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DBB725501B71ED5C0078CA1F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DBB725531B71ED5C0078CA1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBB725551B71ED5C0078CA1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DBB725581B71ED5C0078CA1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -88,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB0726821C71D9C200AC8C32 /* Grocery Dude View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB0726831C71DA0500AC8C32 /* ViewController.h */,
+				DB0726841C71DA0500AC8C32 /* ViewController.m */,
+			);
+			path = "Grocery Dude View Controllers";
+			sourceTree = "<group>";
+		};
 		DBB7253C1B71ED5C0078CA1F = {
 			isa = PBXGroup;
 			children = (
@@ -110,12 +119,11 @@
 		DBB725471B71ED5C0078CA1F /* Grocery Dude */ = {
 			isa = PBXGroup;
 			children = (
+				DB0726821C71D9C200AC8C32 /* Grocery Dude View Controllers */,
 				DBB725751B7208770078CA1F /* GenericCoreDataClasses */,
 				DBB725741B72084C0078CA1F /* CoreDataModel */,
 				DBB7254C1B71ED5C0078CA1F /* AppDelegate.h */,
 				DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */,
-				DBB7254F1B71ED5C0078CA1F /* ViewController.h */,
-				DBB725501B71ED5C0078CA1F /* ViewController.m */,
 				DBB725521B71ED5C0078CA1F /* Main.storyboard */,
 				DBB725551B71ED5C0078CA1F /* Images.xcassets */,
 				DBB725571B71ED5C0078CA1F /* LaunchScreen.xib */,
@@ -281,10 +289,10 @@
 			files = (
 				DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */,
 				DBB7257E1B7218740078CA1F /* Item.m in Sources */,
-				DBB725511B71ED5C0078CA1F /* ViewController.m in Sources */,
 				DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */,
 				DBB7257B1B7208CB0078CA1F /* Model.xcdatamodeld in Sources */,
 				DBB725781B7208770078CA1F /* CoreDataHelper.m in Sources */,
+				DB0726851C71DA0500AC8C32 /* ViewController.m in Sources */,
 				DB0726771C71C1B300AC8C32 /* Measurement.m in Sources */,
 				DBB7254B1B71ED5C0078CA1F /* main.m in Sources */,
 				DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */,
