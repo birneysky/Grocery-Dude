@@ -44,8 +44,13 @@
 @property (nonatomic,readonly) NSPersistentStoreCoordinator* coordinator;
 @property (nonatomic,readonly) NSPersistentStore*            store;
 
+/*判断数据是否需要迁移*/
+- (BOOL)isMigrationNecessaryForStore:(NSURL*)storeUrl;
+
+- (BOOL) migrateStore:(NSURL*)sourceStore;
 
 - (void)setupCoreData;
+
 - (void)saveContext;
 
 @end

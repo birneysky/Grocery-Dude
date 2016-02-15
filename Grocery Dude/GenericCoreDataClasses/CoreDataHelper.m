@@ -66,6 +66,111 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
     [self loadStore];
 }
 
+- (BOOL)isMigrationNecessaryForStore:(NSURL*)storeUrl
+{
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self stroreURL].path]) {
+        TRACE(@"SKIPPED MIGRATION: SOURCE DATABASE MISSING");
+        return NO;
+    }
+    
+    NSError* error = nil;
+    NSDictionary* sourceMetaData = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType URL:storeUrl error:&error];
+    
+    NSManagedObjectModel* destinationModel = _coordinator.managedObjectModel;
+    //判断新模型是否与现有的存储区相兼容，如果兼容返回NO，不迁移数据
+    if ([destinationModel isConfiguration:nil compatibleWithStoreMetadata:sourceMetaData]) {
+        TRACE(@"SKIPPED MIGRATION: source is already compatible");
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL) migrateStore:(NSURL*)sourceStore
+{
+    BOOL sucess = NO;
+    NSError* error = nil;
+    /*step1.收集数据迁移所需要的信息
+        原模型，sourceModel
+        目标模型，destinModel
+        映射模型,mappingModel
+     */
+    //从持久化数据区获取元数据
+    NSDictionary* sourceMetaData = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType
+                                                                                URL:sourceStore
+                                                                            error:&error];
+    //原模型
+    NSManagedObjectModel* sourceModel = [NSManagedObjectModel mergedModelFromBundles:nil
+                                                        forStoreMetadata:sourceMetaData];
+    //目标模型
+    NSManagedObjectModel* destinModel = _model;
+    
+    // 映射模型
+    NSMappingModel* mappingModel = [NSMappingModel mappingModelFromBundles:nil
+                                                            forSourceModel:sourceModel
+                                                           destinationModel:destinModel];
+    
+    /*step2.实际的迁移过程。先用原模型与目标模型创建NSMigrationManager实例,然后在调用migrateStoreFromURL之前，
+     还需把目标存储区准备好，该存储区只是为了迁移而设的临时存储区。
+     
+     */
+    
+    if(mappingModel){
+        NSError* error = nil;
+        NSMigrationManager* migrationManager = [[NSMigrationManager alloc] initWithSourceModel:sourceModel destinationModel:destinModel];
+        [migrationManager addObserver:self
+                           forKeyPath:@"migrationProgress"
+                             options:NSKeyValueObservingOptionNew
+                             context:nil];
+        
+        NSURL* destinStoreUrl = [[self applicationStoresDirectory] URLByAppendingPathComponent:@"temp.sqlite"];
+        sucess = [migrationManager migrateStoreFromURL:sourceStore
+                                                  type:NSSQLiteStoreType
+                                               options:nil
+                                      withMappingModel:mappingModel
+                                      toDestinationURL:destinStoreUrl
+                                       destinationType:NSSQLiteStoreType
+                                    destinationOptions:nil
+                                                 error:&error];
+        if (sucess) {
+            //step3.
+            if ([self replaceStore:sourceStore withStore:destinStoreUrl]) {
+                DebugLog(@"SUCCESSFULLY MIGRATED %@ to the Current Model",sourceStore.path);
+                [migrationManager removeObserver:self forKeyPath:@"migrationProgress"];
+            }
+            
+        }
+        else{
+            DebugLog(@"FAILED MIGRATION: %@",error);
+        }
+    }
+    else{
+        TRACE(@"FAILED MIGRATION: Mapping Model is null");
+    }
+    
+    return YES;
+}
+
+- (BOOL)replaceStore:(NSURL*)old withStore:(NSURL*)new
+{
+    BOOL sucess = NO;
+    NSError* error = nil;
+    if ([[NSFileManager defaultManager] removeItemAtURL:old error:&error]) {
+        error = nil;
+        if ([[NSFileManager defaultManager] moveItemAtURL:new
+            toURL:old error:&error]) {
+            sucess = YES;
+        }
+        else{
+            DebugLog(@"FAILED to re-home new strore %@",error);
+        }
+    }
+    else{
+        DebugLog(@"FAILED TO remove old store %@ : Error: %@",old,error);
+    }
+    return sucess;
+}
+
 #pragma mark - PATHS
 - (NSString*)applicationDocumentsDirectory
 {
@@ -98,6 +203,7 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
     
     return storesDirectory;
 }
+
 
 /*返回持久化存储文件在文件系统中位置*/
 - (NSURL*)stroreURL

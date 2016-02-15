@@ -12,7 +12,7 @@
 		DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267B1C71C46700AC8C32 /* Amount+CoreDataProperties.m */; };
 		DB07267F1C71C46700AC8C32 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267D1C71C46700AC8C32 /* Amount.m */; };
 		DB0726811C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */; };
-		DB0726851C71DA0500AC8C32 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726841C71DA0500AC8C32 /* ViewController.m */; };
+		DB0726851C71DA0500AC8C32 /* MigrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726841C71DA0500AC8C32 /* MigrationViewController.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725521B71ED5C0078CA1F /* Main.storyboard */; };
@@ -47,8 +47,8 @@
 		DB07267C1C71C46700AC8C32 /* Amount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Amount.h; sourceTree = "<group>"; };
 		DB07267D1C71C46700AC8C32 /* Amount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Amount.m; sourceTree = "<group>"; };
 		DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2toModel3.xcmappingmodel; sourceTree = "<group>"; };
-		DB0726831C71DA0500AC8C32 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DB0726841C71DA0500AC8C32 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DB0726831C71DA0500AC8C32 /* MigrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MigrationViewController.h; sourceTree = "<group>"; };
+		DB0726841C71DA0500AC8C32 /* MigrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationViewController.m; sourceTree = "<group>"; };
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 		DB0726821C71D9C200AC8C32 /* Grocery Dude View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DB0726831C71DA0500AC8C32 /* ViewController.h */,
-				DB0726841C71DA0500AC8C32 /* ViewController.m */,
+				DB0726831C71DA0500AC8C32 /* MigrationViewController.h */,
+				DB0726841C71DA0500AC8C32 /* MigrationViewController.m */,
 			);
 			path = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
@@ -292,7 +292,7 @@
 				DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */,
 				DBB7257B1B7208CB0078CA1F /* Model.xcdatamodeld in Sources */,
 				DBB725781B7208770078CA1F /* CoreDataHelper.m in Sources */,
-				DB0726851C71DA0500AC8C32 /* ViewController.m in Sources */,
+				DB0726851C71DA0500AC8C32 /* MigrationViewController.m in Sources */,
 				DB0726771C71C1B300AC8C32 /* Measurement.m in Sources */,
 				DBB7254B1B71ED5C0078CA1F /* main.m in Sources */,
 				DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */,
