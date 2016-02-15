@@ -72,6 +72,7 @@
                                @"Sausages",@"Butter",@"Orange Juice",
                                @"Ceral",@"Coffee",@"Eggs",@"Tomatoes",@"Fish"];
     for (NSString* each in newItemsNames) {
+        //新建托管对象实例，并将其插入上下文
         Item* newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item"
                                                       inManagedObjectContext:self.coreDataHelper.context];
         newItem.name = each;
