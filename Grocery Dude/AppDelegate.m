@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Item.h"
+#import "Measurement.h"
 
 
 #define debug 1
@@ -126,6 +127,8 @@
         DebugLog(@"Inserted New Managed object for '%@'",newItem.name);
     }
     
+
+    
     
     NSFetchRequest* request = [[self.coreDataHelper.model fetchRequestTemplateForName:@"Test"] copy];
     
@@ -141,6 +144,32 @@
         DebugLog(@" Fetch Object = %@",item.name);
     }
     
+}
+
+- (void)deamo3
+{
+    for (int i = 0; i < 5000; i ++) {
+        Measurement* newMeasureMent = [NSEntityDescription insertNewObjectForEntityForName:@"Measurement"
+                                                                    inManagedObjectContext:self.coreDataHelper.context];
+        newMeasureMent.abc = [NSString stringWithFormat:@"-->> LOTS OF TEST DATA x%i",i];
+    }
+}
+
+- (void)demo4
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Measurement"];
+    [request setFetchLimit:50];
+    NSError* error = nil;
+    NSArray* objects = [self.coreDataHelper.context executeFetchRequest:request error:&error];
+    if (error) {
+        DebugLog(@"%@",error);
+    }
+    else
+    {
+        for (Measurement* measurement in objects) {
+            //NSLog(@"")
+        }
+    }
 }
 
 @end
