@@ -15,6 +15,14 @@
 
 /*为了把数据从托管对象映射到持久化存储区中，CoreData需要使用托管对象模型*/
 
+/*后端sql可见性设置
+    把系统自动生成的sql 语句打印出来
+    1. Product-> Scheme -> Edit Scheme
+    2. Run Grocery Dude 切换至Arguments分页
+    3. 点击Arguments Passed On Launch 区域中的'+'按钮
+    4. 输入新参数“-com.apple.CoreData.SQLDebug 3” ok
+ */
+
 @interface CoreDataHelper : NSObject
 
 /*托管对象上下文，磁盘与RAM之间传输数据时会有开销。磁盘读写速度比RAM要慢的多，所以不应该频繁访问它。
