@@ -44,7 +44,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self demo2];
+    [self demo3];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -146,7 +146,7 @@
     
 }
 
-- (void)deamo3
+- (void)demo3
 {
     for (int i = 0; i < 5000; i ++) {
         Measurement* newMeasureMent = [NSEntityDescription insertNewObjectForEntityForName:@"Measurement"

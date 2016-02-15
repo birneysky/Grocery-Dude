@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DB0726771C71C1B300AC8C32 /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726741C71C1B300AC8C32 /* Measurement.m */; };
 		DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726761C71C1B300AC8C32 /* Measurement+CoreDataProperties.m */; };
+		DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267B1C71C46700AC8C32 /* Amount+CoreDataProperties.m */; };
+		DB07267F1C71C46700AC8C32 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267D1C71C46700AC8C32 /* Amount.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725511B71ED5C0078CA1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB725501B71ED5C0078CA1F /* ViewController.m */; };
@@ -38,6 +40,11 @@
 		DB0726741C71C1B300AC8C32 /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurement.m; sourceTree = "<group>"; };
 		DB0726751C71C1B300AC8C32 /* Measurement+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Measurement+CoreDataProperties.h"; sourceTree = "<group>"; };
 		DB0726761C71C1B300AC8C32 /* Measurement+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Measurement+CoreDataProperties.m"; sourceTree = "<group>"; };
+		DB0726791C71C2A500AC8C32 /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
+		DB07267A1C71C46700AC8C32 /* Amount+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Amount+CoreDataProperties.h"; sourceTree = "<group>"; };
+		DB07267B1C71C46700AC8C32 /* Amount+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Amount+CoreDataProperties.m"; sourceTree = "<group>"; };
+		DB07267C1C71C46700AC8C32 /* Amount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Amount.h; sourceTree = "<group>"; };
+		DB07267D1C71C46700AC8C32 /* Amount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Amount.m; sourceTree = "<group>"; };
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -145,6 +152,10 @@
 		DBB725741B72084C0078CA1F /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				DB07267A1C71C46700AC8C32 /* Amount+CoreDataProperties.h */,
+				DB07267B1C71C46700AC8C32 /* Amount+CoreDataProperties.m */,
+				DB07267C1C71C46700AC8C32 /* Amount.h */,
+				DB07267D1C71C46700AC8C32 /* Amount.m */,
 				DB0726731C71C1B300AC8C32 /* Measurement.h */,
 				DB0726741C71C1B300AC8C32 /* Measurement.m */,
 				DB0726751C71C1B300AC8C32 /* Measurement+CoreDataProperties.h */,
@@ -273,6 +284,8 @@
 				DBB725781B7208770078CA1F /* CoreDataHelper.m in Sources */,
 				DB0726771C71C1B300AC8C32 /* Measurement.m in Sources */,
 				DBB7254B1B71ED5C0078CA1F /* main.m in Sources */,
+				DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */,
+				DB07267F1C71C46700AC8C32 /* Amount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,10 +501,11 @@
 		DBB725791B7208CB0078CA1F /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				DB0726791C71C2A500AC8C32 /* Model 3.xcdatamodel */,
 				DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */,
 				DBB7257A1B7208CB0078CA1F /* Model.xcdatamodel */,
 			);
-			currentVersion = DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */;
+			currentVersion = DB0726791C71C2A500AC8C32 /* Model 3.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
