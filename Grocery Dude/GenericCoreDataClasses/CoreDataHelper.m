@@ -18,12 +18,14 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
 #pragma mark - SETUP
 - (id)init
 {
-    if (debug == 1) {
-        NSLog(@"Runing %@ '%@'",self.class,NSStringFromSelector(_cmd));
-    }
+    DebugLog(@"Runing %@ ",self.class);
     self = [super init];
     if (self) {
         
+        /*mergedModelFromBundles 会使用 main boundle中的全部数据模型文件来初始化_model
+         还有一个方法也能初始化托管对象， _model = [[NSManagedObjectModel alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"]];
+         手工指定模型文件，于下面的方法相比，这种写法代码量多了一倍
+         */
         _model = [NSManagedObjectModel mergedModelFromBundles:nil];
         //初始化“持久化存储协调器”
         _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
@@ -37,9 +39,8 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
 
 - (void)loadStore
 {
-    if (debug == 1) {
-        NSLog(@"Runing %@ '%@'",self.class,NSStringFromSelector(_cmd));
-    }
+    DebugLog(@"Runing %@",self.class);
+    
     if (_store) {
         return;
     }
@@ -54,33 +55,29 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
                                                         NSInferMappingModelAutomaticallyOption:@YES
                                                         } //禁用“数据库日志记录模式”
                                                 error:&error];
-    if (!_store) { NSLog(@"Failed to add store Error: %@ ",error); abort();}
-    else{ if (debug == 1) {NSLog(@"Sucessfully added store :%@",_store);}}
+    if (!_store) { DebugLog(@"Failed to add store Error: %@ ",error); abort();}
+    else{ DebugLog(@"Sucessfully added store :%@",_store);}
     
 }
 
 - (void)setupCoreData
 {
-    if (debug == 1) {
-        NSLog(@"Runing %@ '%@'",self.class,NSStringFromSelector(_cmd));
-    }
+    DebugLog(@"Runing %@ ",self.class);
     [self loadStore];
 }
 
 #pragma mark - PATHS
 - (NSString*)applicationDocumentsDirectory
 {
-    if (debug == 1) {
-        NSLog(@"Runing %@ '%@'",self.class,NSStringFromSelector(_cmd));
-    }
+    DebugLog(@"Runing %@ ",self.class);
+    
     return [NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES) lastObject];
 }
 
 - (NSURL*)applicationStoresDirectory
 {
-    if (debug == 1) {
-         NSLog(@"Runing %@ '%@'",self.class,NSStringFromSelector(_cmd));
-    }
+    DebugLog(@"Runing %@ ",self.class);
+
     NSURL* storesDirectory = [[NSURL fileURLWithPath:[self applicationDocumentsDirectory]] URLByAppendingPathComponent:@"Stores"];
     
     NSFileManager* fileManager = [NSFileManager defaultManager];
@@ -91,24 +88,22 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
                   withIntermediateDirectories:YES
                                    attributes:nil
                                         error:&err]) {
-            if (debug == 1) {
-                NSLog(@"SucessFully Created Stores directory");
-            }
+                TRACE(@"SucessFully Created Stores directory");
         }
         else
         {
-            NSLog(@"Failed to create Stores directory: %@",err);
+            DebugLog(@"Failed to create Stores directory: %@",err);
         }
     }
     
     return storesDirectory;
 }
 
+/*返回持久化存储文件在文件系统中位置*/
 - (NSURL*)stroreURL
 {
-    if (debug == 1) {
-         NSLog(@"Runing %@ '%@'",self.class,NSStringFromSelector(_cmd));
-    }
+    DebugLog(@"Runing %@ ",self.class);
+    
     return [[self applicationStoresDirectory] URLByAppendingPathComponent:storeFileName];
 }
 
@@ -116,23 +111,21 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
 
 - (void)saveContext
 {
-    if (debug == 1) {
-        NSLog(@"Runing %@ '%@'",self.class,NSStringFromSelector(_cmd));
-    }
+    DebugLog(@"Runing %@ ",self.class);
     
     if ([_context hasChanges]) {
         NSError* error = nil;
         if ([_context save:&error]) {
-            NSLog(@"_context SAVED changed to persistent store ");
+            TRACE(@"_context SAVED changed to persistent store ");
         }
         else
         {
-            NSLog(@"Failed to save _context: %@",error);
+            DebugLog(@"Failed to save _context: %@",error);
         }
     }
     else
     {
-        NSLog(@"SKIPPED _context save, there are no changes");
+        TRACE(@"SKIPPED _context save, there are no changes");
     }
 }
 

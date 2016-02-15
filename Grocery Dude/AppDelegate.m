@@ -64,9 +64,9 @@
 
 - (void)demo
 {
-    if (debug == 1) {
-        NSLog(@"Runing %@ '%@'",self.class,NSStringFromSelector(_cmd));
-    }
+
+    DebugLog(@"Runing %@ ",self.class);
+
     
     NSArray* newItemsNames = @[@"Apples",@"Milk",@"Bread",@"Cheese",
                                @"Sausages",@"Butter",@"Orange Juice",
@@ -75,7 +75,7 @@
         Item* newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item"
                                                       inManagedObjectContext:self.coreDataHelper.context];
         newItem.name = each;
-        NSLog(@"Inserted New Managed object for '%@'",newItem.name);
+        DebugLog(@"Inserted New Managed object for '%@'",newItem.name);
     }
     
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
@@ -89,7 +89,7 @@
     NSArray* fetchObjects = [self.coreDataHelper.context executeFetchRequest:request error:nil];
     for (Item* item in fetchObjects) {
         [self.coreDataHelper.context deleteObject:item];
-        NSLog(@" Fetch Object = %@",item.name);
+         DebugLog(@" Fetch Object = %@",item.name);
     }
 
 }
