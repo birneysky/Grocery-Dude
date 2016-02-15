@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Item.h"
 #import "Measurement.h"
+#import "Amount.h"
 
 
 #define debug 1
@@ -148,10 +149,10 @@
 
 - (void)demo3
 {
-    for (int i = 0; i < 5000; i ++) {
-        Measurement* newMeasureMent = [NSEntityDescription insertNewObjectForEntityForName:@"Measurement"
+    for (int i = 0; i < 50; i ++) {
+        Amount* newMeasureMent = [NSEntityDescription insertNewObjectForEntityForName:@"Amount"
                                                                     inManagedObjectContext:self.coreDataHelper.context];
-        newMeasureMent.abc = [NSString stringWithFormat:@"-->> LOTS OF TEST DATA x%i",i];
+        newMeasureMent.xyz = [NSString stringWithFormat:@"-->> LOTS OF TEST DATA x%i",i];
     }
 }
 

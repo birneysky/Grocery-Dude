@@ -11,6 +11,7 @@
 		DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726761C71C1B300AC8C32 /* Measurement+CoreDataProperties.m */; };
 		DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267B1C71C46700AC8C32 /* Amount+CoreDataProperties.m */; };
 		DB07267F1C71C46700AC8C32 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267D1C71C46700AC8C32 /* Amount.m */; };
+		DB0726811C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725511B71ED5C0078CA1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB725501B71ED5C0078CA1F /* ViewController.m */; };
@@ -45,6 +46,7 @@
 		DB07267B1C71C46700AC8C32 /* Amount+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Amount+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DB07267C1C71C46700AC8C32 /* Amount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Amount.h; sourceTree = "<group>"; };
 		DB07267D1C71C46700AC8C32 /* Amount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Amount.m; sourceTree = "<group>"; };
+		DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2toModel3.xcmappingmodel; sourceTree = "<group>"; };
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				DBB7257C1B7218740078CA1F /* Item.h */,
 				DBB7257D1B7218740078CA1F /* Item.m */,
 				DBB725791B7208CB0078CA1F /* Model.xcdatamodeld */,
+				DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */,
 			);
 			path = CoreDataModel;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				DB0726771C71C1B300AC8C32 /* Measurement.m in Sources */,
 				DBB7254B1B71ED5C0078CA1F /* main.m in Sources */,
 				DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */,
+				DB0726811C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel in Sources */,
 				DB07267F1C71C46700AC8C32 /* Amount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
