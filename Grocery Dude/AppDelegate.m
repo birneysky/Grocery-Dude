@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "Item.h"
+#import "Item+CoreDataProperties.h"
 #import "Measurement.h"
 #import "Amount.h"
 #import "Unit.h"
@@ -45,7 +45,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self demo5];
+    [self demo7];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -53,7 +53,7 @@
     [self.coreDataHelper saveContext];
 }
 
-
+#pragma mark - *** Properties ****
 
 - (CoreDataHelper*)coreDataHelper
 {
@@ -64,6 +64,7 @@
     return _coreDataHelper;
 }
 
+#pragma mark - *** Demo ***
 - (void)demo
 {
 
@@ -189,5 +190,74 @@
         }
     }
 }
+
+- (void)demo6
+{
+    Unit* kg = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:self.coreDataHelper.context];
+    
+    Item* oranges = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.coreDataHelper.context];
+    
+    Item* bananas = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.coreDataHelper.context];
+    
+    kg.name = @"Kg";
+    oranges.name = @"Oranges";
+    bananas.name = @"Bananas";
+    
+    oranges.quantity = [NSNumber numberWithInt:1];
+    bananas.quantity = [NSNumber numberWithInt:4];
+    oranges.listed = [NSNumber numberWithBool:YES];
+    bananas.listed = [NSNumber numberWithBool:YES];
+    
+    oranges.unit = kg;
+    bananas.unit = kg;
+}
+
+
+- (void)demo7
+{
+    [self showUnitAndItemCount];
+    
+    
+    
+    /*只有当正真保存上下文时，系统才会去实施Delete规则*/
+    /*Failed to save _context: Error Domain=NSCocoaErrorDomain Code=1600 "The operation couldn’t be completed. ,如果想解决这个错误，
+     就必须在删除Unit对象之前，确保该对象可以安全的移除（类NSManagedObject中的validateForDelete）*/
+    
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
+    NSPredicate* filter = [NSPredicate predicateWithFormat:@"name == %@",@"Kg"];
+    [request setPredicate:filter];
+    
+    NSArray* kgUnit = [self.coreDataHelper.context executeFetchRequest:request error:nil];
+    for (Unit* unit in kgUnit) {
+        [self.coreDataHelper.context deleteObject:unit];
+    }
+    
+    [self showUnitAndItemCount];
+}
+
+- (void)showUnitAndItemCount
+{
+    NSFetchRequest* itemsRequest = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    NSError* itemsError = nil;
+    NSArray* fetchedItems = [self.coreDataHelper.context executeFetchRequest:itemsRequest error:&itemsError];
+    if (!fetchedItems) {
+        DebugLog(@"%@",itemsError);
+    }
+    else{
+        DebugLog(@"Found %lu items",fetchedItems.count);
+    }
+    
+    NSFetchRequest* unitsRequest = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
+    NSError* unitsError = nil;
+    NSArray* fetchedUnits = [self.coreDataHelper.context executeFetchRequest:unitsRequest error:&unitsError];
+    
+    if (!fetchedUnits) {
+        DebugLog(@"%@",unitsError);
+    }
+    else{
+        DebugLog(@"Found %lu units", [fetchedUnits count]);
+    }
+}
+
 
 @end

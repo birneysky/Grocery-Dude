@@ -64,7 +64,7 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
                                                       URL:[self stroreURL]
                                                   options:@{NSSQLitePragmasOption:@{@"journal_mode":@"DELETE"},
                                                             NSMigratePersistentStoresAutomaticallyOption:@YES,
-                                                            NSInferMappingModelAutomaticallyOption:@NO
+                                                            NSInferMappingModelAutomaticallyOption:@YES
                                                             } //禁用“数据库日志记录模式”
                                                     error:&error];
         if (!_store) { DebugLog(@"Failed to add store Error: %@ ",error); abort();}

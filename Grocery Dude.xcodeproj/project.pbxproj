@@ -16,6 +16,7 @@
 		DB2F3CFA1C72C32E00428566 /* Unit+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3CF71C72C32E00428566 /* Unit+CoreDataProperties.m */; };
 		DB2F3CFB1C72C32E00428566 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3CF91C72C32E00428566 /* Unit.m */; };
 		DB2F3CFD1C72C3AE00428566 /* Model3toModel4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3CFC1C72C3AE00428566 /* Model3toModel4.xcmappingmodel */; };
+		DB2F3D031C72DCCB00428566 /* Item+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D001C72DCCB00428566 /* Item+CoreDataProperties.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725521B71ED5C0078CA1F /* Main.storyboard */; };
@@ -59,6 +60,8 @@
 		DB2F3CF91C72C32E00428566 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
 		DB2F3CFC1C72C3AE00428566 /* Model3toModel4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model3toModel4.xcmappingmodel; sourceTree = "<group>"; };
 		DB2F3CFE1C72C99C00428566 /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
+		DB2F3CFF1C72DCCB00428566 /* Item+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Item+CoreDataProperties.h"; sourceTree = "<group>"; };
+		DB2F3D001C72DCCB00428566 /* Item+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Item+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 		DBB725741B72084C0078CA1F /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				DB2F3CFF1C72DCCB00428566 /* Item+CoreDataProperties.h */,
+				DB2F3D001C72DCCB00428566 /* Item+CoreDataProperties.m */,
 				DB2F3CF61C72C32E00428566 /* Unit+CoreDataProperties.h */,
 				DB2F3CF71C72C32E00428566 /* Unit+CoreDataProperties.m */,
 				DB2F3CF81C72C32E00428566 /* Unit.h */,
@@ -305,6 +310,7 @@
 				DB2F3CFB1C72C32E00428566 /* Unit.m in Sources */,
 				DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */,
 				DBB7257E1B7218740078CA1F /* Item.m in Sources */,
+				DB2F3D031C72DCCB00428566 /* Item+CoreDataProperties.m in Sources */,
 				DB2F3CFD1C72C3AE00428566 /* Model3toModel4.xcmappingmodel in Sources */,
 				DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */,
 				DB2F3CFA1C72C32E00428566 /* Unit+CoreDataProperties.m in Sources */,

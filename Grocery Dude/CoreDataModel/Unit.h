@@ -58,7 +58,22 @@
                 2. 从Unit指向Item实体的newRelationship改名为items
                 3. 把items这条关系的Type改成To-Many
  
-        现在已经明白：关系的名称要和它所提供的某种访问能力相符。
+        现在已经明白：关系的名称要和它所提供的某种访问能力相符。但是在使用，item.unit 以及 unit.items来访问关系目标对象之前，
+        必须先为这些实体创建相应的NSManagedObject子类。另外如果在配置“一对多关系“时，勾选了Ordered选项时，那么在NSManagedObject子类里面对应的特性类型就会成为NSOrderedSet
+    2. Delete规则
+        在配置关系时，一定要注意Delete Rule。当我们删除某个对象时，该规则决定了与之相关的那些对象应该如何处理。
+        可选择的“Delete 规则” 有以下几种
+        2.1 Nullify  大多数情况都可以采用这种默认的Delete规则。如果删除了某个对象，而该对象与其他对象的关系又受制于“Nullify规则”，那么这些对象就会把指向该对象的“关系”清空。
+                     比方说，有个名叫Kg的unit对象，它关联着一些Item对象。假如items关系的Delete规则是NUllify，那么当把这个名为Kg的unit对象删掉之后，与它相关的那些Item对象
+                     就会将其unit特性设为nil
+        2.2 Cascade 这种Delete规则会沿着关系来传播删除操作。比如说，有个名叫Kg的unit对象，它关联着一些Item对象，如果items关系的Delete规则是Cascade,
+                    那么当把这个名为Kg的unit对象删掉之后，与它相关的所有item对象也会被删除。
+        2.3 Deny 如果已经有其他对象与某对象相关联，那么这种规则会组织开发者删除该对象，比如，有个名叫Kg的unit对象，它关联着一下item对象，如果items关系为Deny，当开发者把这个kg对象
+                 删除并试图将改动保存到上下文时，系统就会发现目前仍有item对象与之相关联，从而引发 validation error（验证错误）。
+                 假如把某条关系的delete规则设置为deny，那么在删除对象之前，开发者需要确保程序里面已经没有与该对象通过该关系相关联的对象。
+        2.4 No Action 这是一种奇怪的Delete规则，他会导致对象图处于不一致状态（inconsistent state） 
+                      如果用了这条规则，那么删除某个对象之后，开发者必须手动设定反向的关系，已确保他们都指向有效的对象。只有再极个别的情况下才需要使用这种Delete规则。
+        为了测试删除对象之后的效果，在Appdelegate.m添加一个新方法（showUnitAndItemCount），用来显示持久化存储区里的unit对象以及item对象的个数
  */
 
 NS_ASSUME_NONNULL_BEGIN

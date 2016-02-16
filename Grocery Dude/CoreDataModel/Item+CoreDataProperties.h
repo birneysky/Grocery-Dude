@@ -1,5 +1,5 @@
 //
-//  Unit+CoreDataProperties.h
+//  Item+CoreDataProperties.h
 //  Grocery Dude
 //
 //  Created by zhangguang on 16/2/16.
@@ -9,25 +9,20 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Unit.h"
+#import "Item.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class Item;
+@class Unit;
 
-@interface Unit (CoreDataProperties)
+@interface Item (CoreDataProperties)
 
+@property (nullable, nonatomic, retain) NSNumber *collected;
+@property (nullable, nonatomic, retain) NSNumber *listed;
 @property (nullable, nonatomic, retain) NSString *name;
-@property (nullable, nonatomic, retain) NSSet<Item *> *items;
-
-@end
-
-@interface Unit (CoreDataGeneratedAccessors)
-
-- (void)addItemsObject:(Item *)value;
-- (void)removeItemsObject:(Item *)value;
-- (void)addItems:(NSSet<Item *> *)values;
-- (void)removeItems:(NSSet<Item *> *)values;
+@property (nullable, nonatomic, retain) NSData *photoData;
+@property (nullable, nonatomic, retain) NSNumber *quantity;
+@property (nullable, nonatomic, retain) Unit *unit;
 
 @end
 
