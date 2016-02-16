@@ -11,6 +11,8 @@
 #import "Measurement.h"
 #import "Amount.h"
 #import "Unit.h"
+#import "LocationAtHome+CoreDataProperties.h"
+#import "LocationAtShop+CoreDataProperties.h"
 
 #define debug 1
 
@@ -45,7 +47,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self demo7];
+    [self demo6];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -199,6 +201,17 @@
     
     Item* bananas = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.coreDataHelper.context];
     
+    LocationAtHome* locationAtHome = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtHome" inManagedObjectContext:self.coreDataHelper.context];
+    
+    LocationAtShop* locationAtShop = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtShop" inManagedObjectContext:self.coreDataHelper.context];
+    
+    locationAtHome.summary = @"home";
+    locationAtHome.storedin = @"xxxxhome";
+    
+    locationAtShop.summary = @"shop";
+    locationAtShop.aisle = @"xxxxshop";
+    
+    
     kg.name = @"Kg";
     oranges.name = @"Oranges";
     bananas.name = @"Bananas";
@@ -207,6 +220,9 @@
     bananas.quantity = [NSNumber numberWithInt:4];
     oranges.listed = [NSNumber numberWithBool:YES];
     bananas.listed = [NSNumber numberWithBool:YES];
+    
+    oranges.locationAtHome = locationAtHome;
+    oranges.locationAtShop = locationAtShop;
     
     oranges.unit = kg;
     bananas.unit = kg;
@@ -258,6 +274,12 @@
         DebugLog(@"Found %lu units", [fetchedUnits count]);
     }
 }
+
+/*数据验证错误
+        把数据保存到持久化存储区之前，它们必须通过验证。加入某个对象未能通过验证
+        ，那么系统就会跑出domain为NSCocoaErrorDeomain的NSError。
+ */
+
 
 
 @end

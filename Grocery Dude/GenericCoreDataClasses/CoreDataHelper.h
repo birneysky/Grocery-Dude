@@ -53,4 +53,6 @@
 
 - (void)saveContext;
 
+- (void)showValidationError:(NSError*)anError;
+
 @end

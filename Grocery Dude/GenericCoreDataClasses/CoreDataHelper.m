@@ -303,4 +303,43 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
     }
 }
 
+- (void)showValidationError:(NSError*)anError
+{
+    if (anError && [anError.domain isEqualToString:@"NSCocoErrorDomain"]) {
+        NSArray* errors = nil;
+        NSString* text = @"";
+        
+        if (anError.code == NSValidationMultipleErrorsError) {
+            errors = [anError.userInfo objectForKey:NSDetailedErrorsKey];
+        }
+        else{
+            errors = [NSArray arrayWithObject:anError];
+        }
+        
+        if (errors && errors.count > 0) {
+            for (NSError* error in errors) {
+                NSString* entity = [[[error.userInfo objectForKey:@"NSValidationErrorObject"] entity] name];
+                NSString* property = [error.userInfo objectForKey:@"NSValidationErrorKey"];
+                switch (error.code) {
+                    case NSValidationRelationshipDeniedDeleteError:
+                        text = [text stringByAppendingFormat:@"%@:delete was denied because there are associated %@\n(Error Code ☞ %li)\n\n",entity,property,error.code];
+                        break;
+                    case NSValidationRelationshipLacksMinimumCountError:
+                        text = [text stringByAppendingFormat:@"the '%@' relationship count is too small (code %li)",property,error.code];
+                        break;
+                    case NSValidationRelationshipExceedsMaximumCountError:
+                        text = [text stringByAppendingFormat:@"the '%@' relationship count is too large (code %li) ",property,error.code];
+                        break;
+                    case NSValidationMissingMandatoryPropertyError:
+                        text = [text stringByAppendingFormat:@"the '%@' property is missing (code %li)",property,error.code];
+                        break;
+                    default:
+                        text =[text stringByAppendingFormat:@"Unhandled error code %li in showValidationError method",error.code];
+                        break;
+                }
+            }
+        }
+    }
+}
+
 @end

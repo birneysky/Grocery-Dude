@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSData *photoData;
 @property (nullable, nonatomic, retain) NSNumber *quantity;
 @property (nullable, nonatomic, retain) Unit *unit;
+@property (nullable, nonatomic, retain) NSManagedObject *locationAtHome;
+@property (nullable, nonatomic, retain) NSManagedObject *locationAtShop;
 
 @end
 

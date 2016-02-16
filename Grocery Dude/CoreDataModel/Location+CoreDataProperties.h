@@ -1,5 +1,5 @@
 //
-//  Item+CoreDataProperties.m
+//  Location+CoreDataProperties.h
 //  Grocery Dude
 //
 //  Created by zhangguang on 16/2/16.
@@ -9,17 +9,14 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Item+CoreDataProperties.h"
+#import "Location.h"
 
-@implementation Item (CoreDataProperties)
+NS_ASSUME_NONNULL_BEGIN
 
-@dynamic collected;
-@dynamic listed;
-@dynamic name;
-@dynamic photoData;
-@dynamic quantity;
-@dynamic unit;
-@dynamic locationAtHome;
-@dynamic locationAtShop;
+@interface Location (CoreDataProperties)
+
+@property (nullable, nonatomic, retain) NSString *summary;
 
 @end
+
+NS_ASSUME_NONNULL_END
