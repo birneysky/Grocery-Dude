@@ -10,7 +10,7 @@
 #import "Item.h"
 #import "Measurement.h"
 #import "Amount.h"
-
+#import "Unit.h"
 
 #define debug 1
 
@@ -45,7 +45,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self demo3];
+    [self demo5];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -169,6 +169,23 @@
     {
         for (Measurement* measurement in objects) {
             //NSLog(@"")
+        }
+    }
+}
+
+- (void)demo5
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
+    [request setFetchLimit:50];
+    NSError* error = nil;
+    NSArray* objects = [self.coreDataHelper.context executeFetchRequest:request error:&error];
+    if (error) {
+        DebugLog(@"%@",error);
+    }
+    else
+    {
+        for (Unit* unit in objects) {
+            DebugLog(@" Fetched object = %@",unit.name);
         }
     }
 }

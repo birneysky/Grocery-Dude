@@ -7,15 +7,22 @@
 //
 
 #import "CoreDataHelper.h"
+#import "MigrationViewController.h"
+
+@interface CoreDataHelper ()
+
+@property (nonatomic,strong)MigrationViewController* migrationVC;
+
+@end
 
 @implementation CoreDataHelper
 
 #define debug 1
 
-#pragma mark - FILES
+#pragma mark - *** FILES Name ***
 NSString* storeFileName = @"Grocery-Dude.sqlite";
 
-#pragma mark - SETUP
+#pragma mark - *** SETUP ***
 - (id)init
 {
     DebugLog(@"Runing %@ ",self.class);
@@ -45,18 +52,25 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
         return;
     }
     
-    NSError* error;
-    //讲Sqllite持久化存储区添加到_coordinator后，_strore 就是指向这个持久化存储区的指针
-    _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType
-                                        configuration:nil
-                                                  URL:[self stroreURL]
-                                              options:@{NSSQLitePragmasOption:@{@"journal_mode":@"DELETE"},
-                                                        NSMigratePersistentStoresAutomaticallyOption:@YES,
-                                                        NSInferMappingModelAutomaticallyOption:@NO
-                                                        } //禁用“数据库日志记录模式”
-                                                error:&error];
-    if (!_store) { DebugLog(@"Failed to add store Error: %@ ",error); abort();}
-    else{ DebugLog(@"Sucessfully added store :%@",_store);}
+    BOOL useMIgrationManager = NO;
+    if (useMIgrationManager && [self isMigrationNecessaryForStore:[self stroreURL]]) {
+        [self performBackgroundManagedMigrationForStore:[self stroreURL]];
+    }
+    else{
+        NSError* error;
+        //讲Sqllite持久化存储区添加到_coordinator后，_strore 就是指向这个持久化存储区的指针
+        _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                            configuration:nil
+                                                      URL:[self stroreURL]
+                                                  options:@{NSSQLitePragmasOption:@{@"journal_mode":@"DELETE"},
+                                                            NSMigratePersistentStoresAutomaticallyOption:@YES,
+                                                            NSInferMappingModelAutomaticallyOption:@NO
+                                                            } //禁用“数据库日志记录模式”
+                                                    error:&error];
+        if (!_store) { DebugLog(@"Failed to add store Error: %@ ",error); abort();}
+        else{ DebugLog(@"Sucessfully added store :%@",_store);}
+    }
+
     
 }
 
@@ -66,6 +80,7 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
     [self loadStore];
 }
 
+#pragma mark - *** Helper ***
 - (BOOL)isMigrationNecessaryForStore:(NSURL*)storeUrl
 {
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self stroreURL].path]) {
@@ -133,7 +148,10 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
                                     destinationOptions:nil
                                                  error:&error];
         if (sucess) {
-            //step3.
+            /*step3.只有在顺利完成迁移时才出发。replaceStore方法用于在迁移完成后清理旧的存储区，
+             执行完step2之后，目标位置上就会出现新的存储区了，但是必须把这个迁移过来的新存储区放回在原来的位置上，并且要把它的文件名和旧的存储区一样，
+             这样CoreData 才能使用新的存储区。
+             */
             if ([self replaceStore:sourceStore withStore:destinStoreUrl]) {
                 DebugLog(@"SUCCESSFULLY MIGRATED %@ to the Current Model",sourceStore.path);
                 [migrationManager removeObserver:self forKeyPath:@"migrationProgress"];
@@ -171,7 +189,57 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
     return sucess;
 }
 
-#pragma mark - PATHS
+#pragma mark - *** KeyPath Observer ***
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"migrationProgress"]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            float progress = [[change objectForKey:NSKeyValueChangeNewKey] floatValue];
+            self.migrationVC.progressView.progress = progress;
+            int percentage = progress * 100;
+            NSString* string = [NSString stringWithFormat:@"Migration Progress : %i%%",percentage];
+            self.migrationVC.label.text = string;
+            DebugLog(@"%@",string);
+        });
+    }
+}
+
+#pragma mark - *** Background Migrate ***
+- (void)performBackgroundManagedMigrationForStore:(NSURL*)storeURL
+{
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.migrationVC = [sb instantiateViewControllerWithIdentifier:@"migration"];
+    UIApplication* app = [UIApplication sharedApplication];
+    UINavigationController* nav = (UINavigationController*)app.keyWindow.rootViewController;
+    [nav presentViewController:self.migrationVC animated:NO completion:nil];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        BOOL done = [self migrateStore:storeURL];
+        if (done) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError* error = nil;
+                _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                    configuration:nil
+                                                              URL:[self stroreURL]
+                                                          options:@{NSSQLitePragmasOption:@{@"journal_mode":@"DELETE"}}
+                                                            error:&error];
+                if (!_store) {
+                    DebugLog(@"Failed to add a migrated store. Error : %@",error);
+                    abort();
+                }
+                else{
+                    DebugLog(@"Sucessfully added a migrated store : %@",_store);
+                }
+                
+                [self.migrationVC dismissViewControllerAnimated:NO completion:nil];
+                self.migrationVC = nil;
+            });
+        }
+    });
+}
+
+
+#pragma mark - *** PATHS ***
 - (NSString*)applicationDocumentsDirectory
 {
     DebugLog(@"Runing %@ ",self.class);
@@ -213,7 +281,7 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
     return [[self applicationStoresDirectory] URLByAppendingPathComponent:storeFileName];
 }
 
-#pragma mark - SAVING
+#pragma mark - *** SAVING ***
 
 - (void)saveContext
 {

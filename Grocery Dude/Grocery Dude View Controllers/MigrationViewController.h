@@ -10,6 +10,8 @@
 
 @interface MigrationViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 @end
 
