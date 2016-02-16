@@ -58,6 +58,7 @@
 		DB2F3CF81C72C32E00428566 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
 		DB2F3CF91C72C32E00428566 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
 		DB2F3CFC1C72C3AE00428566 /* Model3toModel4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model3toModel4.xcmappingmodel; sourceTree = "<group>"; };
+		DB2F3CFE1C72C99C00428566 /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -530,12 +531,13 @@
 		DBB725791B7208CB0078CA1F /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				DB2F3CFE1C72C99C00428566 /* Model 5.xcdatamodel */,
 				DB2F3CF51C72C2CF00428566 /* Model 4.xcdatamodel */,
 				DB0726791C71C2A500AC8C32 /* Model 3.xcdatamodel */,
 				DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */,
 				DBB7257A1B7208CB0078CA1F /* Model.xcdatamodel */,
 			);
-			currentVersion = DB2F3CF51C72C2CF00428566 /* Model 4.xcdatamodel */;
+			currentVersion = DB2F3CFE1C72C99C00428566 /* Model 5.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
