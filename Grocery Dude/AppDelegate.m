@@ -60,8 +60,12 @@
 - (CoreDataHelper*)coreDataHelper
 {
     if (!_coreDataHelper) {
-        _coreDataHelper = [[CoreDataHelper alloc] init];
-        [_coreDataHelper setupCoreData];
+        //防止多个线程同时实例化CoreDataHelper
+        static dispatch_once_t predicate;
+        dispatch_once(&predicate, ^{
+            _coreDataHelper = [[CoreDataHelper alloc] init];
+              [_coreDataHelper setupCoreData];
+        });
     }
     return _coreDataHelper;
 }

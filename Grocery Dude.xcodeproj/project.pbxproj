@@ -24,6 +24,8 @@
 		DB2F3D1B1C7309CD00428566 /* Unit+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D111C7309CD00428566 /* Unit+CoreDataProperties.m */; };
 		DB2F3D1C1C7309CD00428566 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D131C7309CD00428566 /* Location+CoreDataProperties.m */; };
 		DB2F3D1D1C7309CD00428566 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D151C7309CD00428566 /* Location.m */; };
+		DB2F3D241C732A2300428566 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D231C732A2300428566 /* CoreDataTableViewController.m */; };
+		DB2F3D271C732A5500428566 /* PrepareTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D261C732A5500428566 /* PrepareTableViewController.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725521B71ED5C0078CA1F /* Main.storyboard */; };
@@ -83,6 +85,10 @@
 		DB2F3D131C7309CD00428566 /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DB2F3D141C7309CD00428566 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		DB2F3D151C7309CD00428566 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		DB2F3D221C732A2300428566 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		DB2F3D231C732A2300428566 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		DB2F3D251C732A5500428566 /* PrepareTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrepareTableViewController.h; sourceTree = "<group>"; };
+		DB2F3D261C732A5500428566 /* PrepareTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrepareTableViewController.m; sourceTree = "<group>"; };
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +137,17 @@
 			path = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
 		};
+		DB2F3D211C7329BC00428566 /* Grocery Dude Table View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F3D221C732A2300428566 /* CoreDataTableViewController.h */,
+				DB2F3D231C732A2300428566 /* CoreDataTableViewController.m */,
+				DB2F3D251C732A5500428566 /* PrepareTableViewController.h */,
+				DB2F3D261C732A5500428566 /* PrepareTableViewController.m */,
+			);
+			path = "Grocery Dude Table View Controller";
+			sourceTree = "<group>";
+		};
 		DBB7253C1B71ED5C0078CA1F = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +170,7 @@
 		DBB725471B71ED5C0078CA1F /* Grocery Dude */ = {
 			isa = PBXGroup;
 			children = (
+				DB2F3D211C7329BC00428566 /* Grocery Dude Table View Controller */,
 				DB0726821C71D9C200AC8C32 /* Grocery Dude View Controllers */,
 				DBB725751B7208770078CA1F /* GenericCoreDataClasses */,
 				DBB725741B72084C0078CA1F /* CoreDataModel */,
@@ -343,8 +361,10 @@
 			files = (
 				DB2F3CFB1C72C32E00428566 /* Unit.m in Sources */,
 				DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */,
+				DB2F3D241C732A2300428566 /* CoreDataTableViewController.m in Sources */,
 				DB2F3D181C7309CD00428566 /* LocationAtHome.m in Sources */,
 				DBB7257E1B7218740078CA1F /* Item.m in Sources */,
+				DB2F3D271C732A5500428566 /* PrepareTableViewController.m in Sources */,
 				DB2F3D171C7309CD00428566 /* LocationAtHome+CoreDataProperties.m in Sources */,
 				DB2F3D031C72DCCB00428566 /* Item+CoreDataProperties.m in Sources */,
 				DB2F3CFD1C72C3AE00428566 /* Model3toModel4.xcmappingmodel in Sources */,
