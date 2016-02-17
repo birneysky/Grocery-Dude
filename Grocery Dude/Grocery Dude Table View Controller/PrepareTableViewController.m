@@ -9,6 +9,7 @@
 #import "PrepareTableViewController.h"
 #import "AppDelegate.h"
 #import "Item+CoreDataProperties.h"
+#import "ItemViewController.h"
 
 @interface PrepareTableViewController () <UIActionSheetDelegate>
 
@@ -147,6 +148,38 @@
     NSFetchRequest* request = [cdh.model fetchRequestTemplateForName:@"ShoppingList"];
     NSArray* shoppingList = [cdh.context executeFetchRequest:request error:nil];
     [shoppingList makeObjectsPerformSelector:@selector(setListed:) withObject:[NSNumber numberWithBool:NO]];
+}
+
+
+#pragma mark - *** Segue ***
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ItemViewController* itemVC = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"Add Item Segue"]) {
+        CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
+        Item* newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:cdh.context];
+        NSError* error = nil;
+        if (![cdh.context obtainPermanentIDsForObjects:@[newItem] error:&error]) {
+            DebugLog(@"Couldn't obtain a permanent ID for object %@",error);
+        }
+        itemVC.selectedItemID = newItem.objectID;
+    }
+    else if ([segue.identifier isEqualToString:@"Show Item Segue"])
+    {
+        NSIndexPath* indexpath = [self.tableView indexPathForCell:sender];
+        itemVC.selectedItemID = [[self.frc objectAtIndexPath:indexpath] objectID];
+    }
+    
+    
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+//    ItemViewController* itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemVC"];
+//    itemVC.selectedItemID = [[self.frc objectAtIndexPath:indexPath] objectID];
+//    [self.navigationController pushViewController:itemVC animated:YES];
+    //self.hidesBottomBarWhenPushed = YES;
 }
 
 @end

@@ -81,6 +81,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="553" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Dh2-Jc-XZs" kind="show" identifier="Show Item Segue" trigger="accessoryAction" id="1Qi-pX-Baa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -94,12 +97,34 @@
                                 <action selector="clear:" destination="OxK-rp-syV" id="hUw-GL-bBi"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YaE-8V-X1w"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YaE-8V-X1w">
+                            <connections>
+                                <segue destination="Dh2-Jc-XZs" kind="show" identifier="Add Item Segue" id="iNX-ma-eiw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JU9-IF-qaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="713" y="-1424"/>
+        </scene>
+        <!--Item View Controller-->
+        <scene sceneID="Ea9-JQ-nx8">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="Dh2-Jc-XZs" customClass="ItemViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S7z-2w-R9q"/>
+                        <viewControllerLayoutGuide type="bottom" id="l8d-Jp-lax"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pq7-L7-ZWJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h1a-dL-g2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1378" y="-1424"/>
         </scene>
         <!--Grocery Dude-->
         <scene sceneID="nRu-xa-VP0">
@@ -177,4 +202,7 @@
         <image name="prepare" width="28" height="22"/>
         <image name="shop" width="30" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="iNX-ma-eiw"/>
+    </inferredMetricsTieBreakers>
 </document>

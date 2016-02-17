@@ -27,6 +27,7 @@
 		DB2F3D241C732A2300428566 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D231C732A2300428566 /* CoreDataTableViewController.m */; };
 		DB2F3D271C732A5500428566 /* PrepareTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D261C732A5500428566 /* PrepareTableViewController.m */; };
 		DB64A6F61C7425D000D857C6 /* ShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB64A6F51C7425D000D857C6 /* ShopTableViewController.m */; };
+		DB64A6F91C744E0A00D857C6 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB64A6F81C744E0A00D857C6 /* ItemViewController.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725521B71ED5C0078CA1F /* Main.storyboard */; };
@@ -93,6 +94,8 @@
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		DB64A6F41C7425D000D857C6 /* ShopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewController.h; sourceTree = "<group>"; };
 		DB64A6F51C7425D000D857C6 /* ShopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewController.m; sourceTree = "<group>"; };
+		DB64A6F71C744E0A00D857C6 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		DB64A6F81C744E0A00D857C6 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBB7254A1B71ED5C0078CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				DB2F3D261C732A5500428566 /* PrepareTableViewController.m */,
 				DB64A6F41C7425D000D857C6 /* ShopTableViewController.h */,
 				DB64A6F51C7425D000D857C6 /* ShopTableViewController.m */,
+				DB64A6F71C744E0A00D857C6 /* ItemViewController.h */,
+				DB64A6F81C744E0A00D857C6 /* ItemViewController.m */,
 			);
 			path = "Grocery Dude Table View Controller";
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2F3CFB1C72C32E00428566 /* Unit.m in Sources */,
+				DB64A6F91C744E0A00D857C6 /* ItemViewController.m in Sources */,
 				DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */,
 				DB2F3D241C732A2300428566 /* CoreDataTableViewController.m in Sources */,
 				DB2F3D181C7309CD00428566 /* LocationAtHome.m in Sources */,

@@ -27,6 +27,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    /*UIScreen类代表了屏幕
+     UIView继承自UIResponder,如果说把window比作画框的话,它是负责显示的画布
+     我们就是不断地在画框上移除、更换或者叠加画布,或者在画布上叠加其他画布，大小当然 由绘画者来决定了。
+     
+     UIWindow,UIWindow继承自UIView，关于这一点可能有点逻辑障碍,画框怎么继承自画布呢？
+     不要过于去专牛角尖，画框的形状不就是跟画布一样吗？拿一块画布然后用一些方法把它加强，是不是可以当一个画框用呢？这也是为什么 一个view可以直接加到另一个view上去的原因了
+     */
+    self.window.backgroundColor = [UIColor whiteColor];
     return YES;
 }
 
@@ -38,7 +46,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    [self.coreDataHelper saveContext];
+    //[self.coreDataHelper saveContext];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -47,7 +55,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self demo8];
+    //[self demo8];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
