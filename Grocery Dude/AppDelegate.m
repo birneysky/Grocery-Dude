@@ -47,12 +47,12 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self demo6];
+    [self demo8];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    [self.coreDataHelper saveContext];
+    //[self.coreDataHelper saveContext];
 }
 
 #pragma mark - *** Properties ****
@@ -285,5 +285,33 @@
  */
 
 
+-(void)demo8
+{
+    NSArray* homeLocations = [NSArray arrayWithObjects:@"Fruit Bowl",@"Pantry",@"Nursery",@"Bathroom",@"Fridge", nil];
+    NSArray* shopLocations = [NSArray arrayWithObjects:@"Produce",@"Aisle 1",@"Aisle 2",@"Aisle 3",@"Deli", nil];
+    NSArray* unitNames = [NSArray arrayWithObjects:@"g",@"pkt",@"box",@"ml",@"kg", nil];
+    NSArray* itemNames = [NSArray arrayWithObjects:@"Grapes",@"Biscuits",@"Nappies",@"Shampoo",@"Sausages", nil];
+    
+    for (int i = 0; i < itemNames.count; i++) {
+        LocationAtHome* locationAtHone = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtHome" inManagedObjectContext:self.coreDataHelper.context];
+        LocationAtShop* locationAtShop = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtShop" inManagedObjectContext:self.coreDataHelper.context];
+        Unit* unit = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:self.coreDataHelper.context];
+        Item* item = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.coreDataHelper.context];
+        locationAtHone.storedin = homeLocations[i];
+        locationAtShop.aisle = shopLocations[i];
+        unit.name = unitNames[i];
+        item.name = itemNames[i];
+        
+        item.locationAtHome = locationAtHone;
+        
+        item.locationAtShop = locationAtShop;
+        
+        item.unit = unit;
+        
+        item.quantity = [NSNumber numberWithInt:arc4random() % 20];
+    }
+    
+    [self.coreDataHelper saveContext];
+}
 
 @end

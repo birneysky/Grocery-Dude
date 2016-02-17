@@ -10,10 +10,10 @@
 //
 
 #import "Item.h"
+#import "Unit+CoreDataProperties.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class Unit;
 
 @interface Item (CoreDataProperties)
 

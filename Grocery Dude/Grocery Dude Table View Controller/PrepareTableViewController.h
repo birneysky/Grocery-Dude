@@ -7,7 +7,9 @@
 //
 
 #import "CoreDataTableViewController.h"
-
+/*
+  显示有可能会购买的货品
+ */
 @interface PrepareTableViewController : CoreDataTableViewController
 
 @end

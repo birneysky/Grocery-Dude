@@ -24,7 +24,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Migration Progress %0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbZ-Tv-mBd">
                                 <rect key="frame" x="214" y="270" width="173" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -65,20 +65,20 @@
             </objects>
             <point key="canvasLocation" x="-924" y="-1424"/>
         </scene>
-        <!--Grocery  Dude-->
+        <!--Items-->
         <scene sceneID="P3f-Pz-9fS">
             <objects>
-                <tableViewController id="OxK-rp-syV" sceneMemberID="viewController">
+                <tableViewController id="OxK-rp-syV" customClass="PrepareTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="o4V-2X-NWJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Shop Cell" id="lmg-RK-tKe">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="Item Cell" id="lmg-RK-tKe">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lmg-RK-tKe" id="FAS-lY-OHV">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="553" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -88,22 +88,29 @@
                             <outlet property="delegate" destination="OxK-rp-syV" id="YxX-r3-lb0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Grocery  Dude" id="Ajp-1u-akl"/>
+                    <navigationItem key="navigationItem" title="Items" id="Ajp-1u-akl">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="P7L-23-Xmj">
+                            <connections>
+                                <action selector="clear:" destination="OxK-rp-syV" id="hUw-GL-bBi"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YaE-8V-X1w"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JU9-IF-qaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="713" y="-1424"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Grocery Dude-->
         <scene sceneID="nRu-xa-VP0">
             <objects>
-                <tableViewController id="zxA-L4-f3V" sceneMemberID="viewController">
+                <tableViewController id="zxA-L4-f3V" customClass="ShopTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OQd-Kk-Oxb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="UHM-2M-tKK">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Shop Cell" id="UHM-2M-tKK">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UHM-2M-tKK" id="CTe-hc-ua3">
@@ -117,7 +124,13 @@
                             <outlet property="delegate" destination="zxA-L4-f3V" id="YPN-1O-jNW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="RnH-JD-QbD"/>
+                    <navigationItem key="navigationItem" title="Grocery Dude" id="RnH-JD-QbD">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="BSp-eN-HT6">
+                            <connections>
+                                <action selector="clear:" destination="zxA-L4-f3V" id="PCI-CU-kh3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3C7-eK-R0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
