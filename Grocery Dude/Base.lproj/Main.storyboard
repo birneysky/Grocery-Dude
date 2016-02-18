@@ -82,7 +82,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Dh2-Jc-XZs" kind="show" identifier="Show Item Segue" trigger="accessoryAction" id="1Qi-pX-Baa"/>
+                                    <segue destination="Dh2-Jc-XZs" kind="show" identifier="Show Item Segue" trigger="accessoryAction" id="g5l-N9-oQ0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -99,7 +99,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YaE-8V-X1w">
                             <connections>
-                                <segue destination="Dh2-Jc-XZs" kind="show" identifier="Add Item Segue" id="iNX-ma-eiw"/>
+                                <segue destination="Dh2-Jc-XZs" kind="push" identifier="Add Item Segue" id="OAO-AV-cK0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -166,7 +166,16 @@
                             <constraint firstItem="tge-5i-3Yl" firstAttribute="top" secondItem="pq7-L7-ZWJ" secondAttribute="top" id="ygb-Vs-c3q"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Jg7-38-Gg7">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="done" id="Fi0-V3-lvj">
+                            <connections>
+                                <action selector="done:" destination="Dh2-Jc-XZs" id="HH6-gy-lQ3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="nameTextField" destination="7me-pY-qzS" id="Xmx-bA-3rb"/>
                         <outlet property="quantityTextField" destination="ifN-3n-uyM" id="SbZ-tC-nh3"/>
@@ -254,6 +263,6 @@
         <image name="shop" width="30" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iNX-ma-eiw"/>
+        <segue reference="g5l-N9-oQ0"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -24,10 +24,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self hideKeyboardWhenBackgroundIsTapped];
 }
 
 
+#pragma mark - *** Helper ***
+
+- (void)hideKeyboardWhenBackgroundIsTapped
+{
+    UITapGestureRecognizer* tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [tgr setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:tgr];
+}
+
+- (void)hideKeyboard
+{
+    [self.view endEditing:YES];
+}
+
+- (IBAction)done:(id)sender {
+    
+    
+}
 
 
 @end
