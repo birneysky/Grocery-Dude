@@ -108,10 +108,10 @@
             </objects>
             <point key="canvasLocation" x="713" y="-1424"/>
         </scene>
-        <!--Item View Controller-->
+        <!--Item-->
         <scene sceneID="Ea9-JQ-nx8">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="Dh2-Jc-XZs" customClass="ItemViewController" sceneMemberID="viewController">
+                <viewController title="Item" hidesBottomBarWhenPushed="YES" id="Dh2-Jc-XZs" customClass="ItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S7z-2w-R9q"/>
                         <viewControllerLayoutGuide type="bottom" id="l8d-Jp-lax"/>
@@ -119,12 +119,63 @@
                     <view key="view" contentMode="scaleToFill" id="pq7-L7-ZWJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tge-5i-3Yl">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4d-mi-UjU" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" red="0.21193406649999999" green="0.77261078039999997" blue="0.3453101516" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7me-pY-qzS">
+                                        <rect key="frame" x="8" y="21" width="584" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Qty" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ifN-3n-uyM">
+                                        <rect key="frame" x="8" y="59" width="97" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="97" id="dSq-XA-OLe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="n4d-mi-UjU" firstAttribute="top" secondItem="tge-5i-3Yl" secondAttribute="top" id="2Fk-sa-58b"/>
+                                    <constraint firstItem="7me-pY-qzS" firstAttribute="leading" secondItem="tge-5i-3Yl" secondAttribute="leading" constant="8" id="7rI-v8-GW9"/>
+                                    <constraint firstItem="7me-pY-qzS" firstAttribute="top" secondItem="tge-5i-3Yl" secondAttribute="top" constant="21" id="BKg-E7-VNT"/>
+                                    <constraint firstAttribute="trailing" secondItem="7me-pY-qzS" secondAttribute="trailing" constant="8" id="QGp-f0-CO7"/>
+                                    <constraint firstItem="ifN-3n-uyM" firstAttribute="top" secondItem="7me-pY-qzS" secondAttribute="bottom" constant="8" id="RZ8-NV-9yx"/>
+                                    <constraint firstItem="7me-pY-qzS" firstAttribute="centerX" secondItem="tge-5i-3Yl" secondAttribute="centerX" id="UhC-NQ-seW"/>
+                                    <constraint firstItem="n4d-mi-UjU" firstAttribute="leading" secondItem="tge-5i-3Yl" secondAttribute="leading" id="aqm-3z-I1P"/>
+                                    <constraint firstItem="n4d-mi-UjU" firstAttribute="height" secondItem="tge-5i-3Yl" secondAttribute="height" id="bhm-sn-TPY"/>
+                                    <constraint firstItem="n4d-mi-UjU" firstAttribute="width" secondItem="tge-5i-3Yl" secondAttribute="width" id="n4q-KE-piA"/>
+                                    <constraint firstAttribute="trailing" secondItem="n4d-mi-UjU" secondAttribute="trailing" id="ptL-Lu-rU7"/>
+                                    <constraint firstItem="ifN-3n-uyM" firstAttribute="leading" secondItem="tge-5i-3Yl" secondAttribute="leading" constant="8" id="xDI-GW-ybW"/>
+                                    <constraint firstAttribute="bottom" secondItem="n4d-mi-UjU" secondAttribute="bottom" id="z1P-6i-ECd"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tge-5i-3Yl" firstAttribute="leading" secondItem="pq7-L7-ZWJ" secondAttribute="leading" id="Cji-1m-bAJ"/>
+                            <constraint firstAttribute="bottom" secondItem="tge-5i-3Yl" secondAttribute="bottom" id="fcX-Be-RjB"/>
+                            <constraint firstAttribute="trailing" secondItem="tge-5i-3Yl" secondAttribute="trailing" id="uRJ-mQ-NXA"/>
+                            <constraint firstItem="tge-5i-3Yl" firstAttribute="top" secondItem="pq7-L7-ZWJ" secondAttribute="top" id="ygb-Vs-c3q"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="7me-pY-qzS" id="Xmx-bA-3rb"/>
+                        <outlet property="quantityTextField" destination="ifN-3n-uyM" id="SbZ-tC-nh3"/>
+                        <outlet property="scrollView" destination="tge-5i-3Yl" id="SYM-gy-IzD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1a-dL-g2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="-1424"/>
+            <point key="canvasLocation" x="1384" y="-1424"/>
         </scene>
         <!--Grocery Dude-->
         <scene sceneID="nRu-xa-VP0">

@@ -13,6 +13,11 @@
 
 @interface ItemViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *quantityTextField;
 @end
 
 @implementation ItemViewController
