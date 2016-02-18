@@ -10,6 +10,8 @@
 #import "CoreDataHelper.h"
 #import "AppDelegate.h"
 #import "Item+CoreDataProperties.h"
+#import "LocationAtHome+CoreDataProperties.h"
+#import "LocationAtShop+CoreDataProperties.h"
 
 @interface ItemViewController () <UITextFieldDelegate>
 
@@ -64,6 +66,57 @@
         Item* item = [cdh.context existingObjectWithID:self.selectedItemID error:nil];
         self.nameTextField.text = item.name;
         self.quantityTextField.text = item.quantity.stringValue;
+    }
+}
+
+- (void)ensureItemHomeLocationIsNotNUll
+{
+    if (self.selectedItemID) {
+        CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
+        Item* item = [cdh.context existingObjectWithID:self.selectedItemID error:nil];
+        
+        if (!item.locationAtHome) {
+            NSFetchRequest* request = [cdh.model fetchRequestTemplateForName:@"UnknownLocationAtHome"];
+            NSArray* fetchedObjects = [cdh.context executeFetchRequest:request error:nil];
+            if (fetchedObjects.count > 0) {
+                item.locationAtHome = [fetchedObjects objectAtIndex:0];
+            }
+            else{
+                LocationAtHome* locationAtHome = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtHome" inManagedObjectContext:cdh.context];
+                NSError* error = nil;
+                if (![cdh.context obtainPermanentIDsForObjects:@[locationAtHome] error:&error]) {
+                    DebugLog(@"Couldn't obtain a permanent Id for object %@",error);
+                }
+                locationAtHome.storedin = @"..Unknown Location..";
+                item.locationAtHome = locationAtHome;
+            }
+        }
+    }
+}
+
+- (void)ensureItemShopLocationIsNotNULL
+{
+    if (self.selectedItemID) {
+       CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
+        Item* item = [cdh.context existingObjectWithID:self.selectedItemID error:nil];
+        if (!item.locationAtShop) {
+            NSFetchRequest* request = [cdh.model fetchRequestTemplateForName:@"UnknownLocationAtShop"];
+            NSArray* fetchedOBjects = [cdh.context executeFetchRequest:request error:nil];
+            if (fetchedOBjects.count > 0) {
+                item.locationAtShop = [fetchedOBjects firstObject];
+            }
+            else
+            {
+                LocationAtShop* locationShop = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtShop" inManagedObjectContext:cdh.context];
+                NSError* error = nil;
+                if (![cdh.context obtainPermanentIDsForObjects:@[locationShop] error:&error]) {
+                    DebugLog(@"Could not obtain a permant Id for object %@",error);
+                }
+                
+                locationShop.aisle = @"..Unknown Location..";
+                item.locationAtShop = locationShop;
+            }
+        }
     }
 }
 

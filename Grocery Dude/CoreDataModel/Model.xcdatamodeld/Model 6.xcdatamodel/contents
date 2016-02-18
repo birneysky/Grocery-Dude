@@ -26,6 +26,8 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="unit" inverseEntity="Item" syncable="YES"/>
     </entity>
     <fetchRequest name="ShoppingList" entity="Item" predicateString="listed == 1"/>
+    <fetchRequest name="UnknowLocationAtShop" entity="LocationAtShop" predicateString="aisle == &quot;..Unknown Location..&quot;"/>
+    <fetchRequest name="UnknownLocationAtHome" entity="LocationAtHome" predicateString="storedin == &quot;..Unknown Location..&quot;"/>
     <elements>
         <element name="Item" positionX="-333" positionY="-45" width="128" height="163"/>
         <element name="Location" positionX="-227" positionY="-306" width="128" height="58"/>
