@@ -33,12 +33,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self ensureItemHomeLocationIsNotNUll];
+    [self ensureItemShopLocationIsNotNULL];
     [self refreshInterface];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    [self ensureItemHomeLocationIsNotNUll];
+    [self ensureItemShopLocationIsNotNULL];
       CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
     [cdh saveContext];
 }
@@ -109,6 +113,7 @@
             {
                 LocationAtShop* locationShop = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtShop" inManagedObjectContext:cdh.context];
                 NSError* error = nil;
+                //将对象ID转化为永久ID
                 if (![cdh.context obtainPermanentIDsForObjects:@[locationShop] error:&error]) {
                     DebugLog(@"Could not obtain a permant Id for object %@",error);
                 }
