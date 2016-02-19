@@ -485,7 +485,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="bXR-hJ-DxF">
-                        <barButtonItem key="leftBarButtonItem" title="Done" id="CiC-BP-jVq"/>
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="CiC-BP-jVq">
+                            <connections>
+                                <action selector="done:" destination="B7l-Fh-fJT" id="a2g-IV-FUJ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vJc-ed-nHp">
                             <connections>
                                 <segue destination="6w7-yb-VVX" kind="push" id="fQ4-7C-JV0"/>
