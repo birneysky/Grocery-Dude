@@ -475,7 +475,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="6w7-yb-VVX" kind="push" id="2MG-4B-2tQ"/>
+                                    <segue destination="6w7-yb-VVX" kind="push" identifier="Edit Object Segue" id="2MG-4B-2tQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -492,7 +492,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vJc-ed-nHp">
                             <connections>
-                                <segue destination="6w7-yb-VVX" kind="push" id="fQ4-7C-JV0"/>
+                                <segue destination="6w7-yb-VVX" kind="push" identifier="Add Object Segue" id="fQ4-7C-JV0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -512,9 +512,33 @@
                     <view key="view" contentMode="scaleToFill" id="FVY-jl-Q6a">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tfg-sz-YE7">
+                                <rect key="frame" x="20" y="84" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6w7-yb-VVX" id="0jk-ha-U0H"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tfg-sz-YE7" firstAttribute="top" secondItem="yGk-TP-fJx" secondAttribute="bottom" constant="20" id="6D0-XL-Kon"/>
+                            <constraint firstItem="Tfg-sz-YE7" firstAttribute="leading" secondItem="FVY-jl-Q6a" secondAttribute="leadingMargin" id="9QG-Pp-jmL"/>
+                            <constraint firstItem="Tfg-sz-YE7" firstAttribute="trailing" secondItem="FVY-jl-Q6a" secondAttribute="trailingMargin" id="VqX-Lp-pdH"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Jh0-JL-Qtc"/>
+                    <navigationItem key="navigationItem" id="Jh0-JL-Qtc">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="done" id="fQR-pt-XTT">
+                            <connections>
+                                <action selector="done:" destination="6w7-yb-VVX" id="wUA-Xl-7vR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="Tfg-sz-YE7" id="Ccp-cT-tcm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqX-uW-SKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -547,9 +571,9 @@
         <image name="shop" width="30" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="2MG-4B-2tQ"/>
         <segue reference="g5l-N9-oQ0"/>
-        <segue reference="xVt-bJ-8Bu"/>
         <segue reference="9MI-G1-2lT"/>
-        <segue reference="fQ4-7C-JV0"/>
+        <segue reference="xVt-bJ-8Bu"/>
     </inferredMetricsTieBreakers>
 </document>

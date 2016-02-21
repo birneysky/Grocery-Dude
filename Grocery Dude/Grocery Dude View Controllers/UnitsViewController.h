@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+
 
 @interface UnitsViewController : UIViewController
+
+@property (strong,nonatomic) NSManagedObjectID* selectItemID;
+
+
 
 @end

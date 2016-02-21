@@ -9,6 +9,7 @@
 #import "UnitsTableViewController.h"
 #import "AppDelegate.h"
 #import "Unit+CoreDataProperties.h"
+#import "UnitsViewController.h"
 
 @interface UnitsTableViewController ()
 
@@ -18,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configureFetch];
+    [self performFetch];
     // Do any additional setup after loading the view.
 }
 
@@ -26,15 +29,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    UnitsViewController* destinationVC = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"Add Object Segue"]) {
+        CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
+        Unit* unit = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:cdh.context];
+        NSError* error = nil;
+        if (![cdh.context obtainPermanentIDsForObjects:@[unit] error:&error]) {
+            DebugLog(@" Couldn't obtain a permanent id for objects : %@",error);
+        }
+        destinationVC.selectItemID = [unit objectID];
+    }
+    else if ([segue.identifier isEqualToString:@"Edit Object Segue"]){
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        destinationVC.selectItemID = [[self.frc objectAtIndexPath:indexPath] objectID];
+    }
+    else{
+        TRACE(@"UnIdentified segure attemped!");
+    }
 }
-*/
 
 #pragma mark - *** Helper ***
 - (void)configureFetch
