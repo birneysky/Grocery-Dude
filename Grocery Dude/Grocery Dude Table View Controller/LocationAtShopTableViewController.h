@@ -7,7 +7,10 @@
 //
 
 #import "CoreDataTableViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface LocationAtShopTableViewController : CoreDataTableViewController
+
+@property (nonatomic,strong) NSManagedObjectID* selectItemID;
 
 @end

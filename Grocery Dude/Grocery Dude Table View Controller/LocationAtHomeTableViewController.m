@@ -33,6 +33,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - ***Helper ***
 - (void)configureFetch
 {
     CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
@@ -44,7 +45,24 @@
     
 }
 
+#pragma mark - *** Target Action ***
+- (IBAction)done:(id)sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma mark - *** TableView Data Source ***
 
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"LocationAtHome Cell" forIndexPath:indexPath];
+    return cell;
+}
+
+#pragma mark - ***TableView Delegate ***
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LocationAtHome* locationAtHome = [self.frc objectAtIndexPath:indexPath];
+    cell.textLabel.text = locationAtHome.storedin;
+}
 
 /*
 #pragma mark - Navigation

@@ -235,16 +235,16 @@
             </objects>
             <point key="canvasLocation" x="1384" y="-1424"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Location At Home Table View Controller-->
         <scene sceneID="enk-fz-yqM">
             <objects>
-                <tableViewController id="kpD-uZ-KXF" sceneMemberID="viewController">
+                <tableViewController id="kpD-uZ-KXF" customClass="LocationAtHomeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tcc-jb-9Gx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="pNn-zz-cwh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LocationAtHome Cell" id="pNn-zz-cwh">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pNn-zz-cwh" id="e8j-Oo-I1d">
@@ -262,7 +262,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="dab-DC-ced">
-                        <barButtonItem key="leftBarButtonItem" title="Done" id="A07-e6-Rf5"/>
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="A07-e6-Rf5">
+                            <connections>
+                                <action selector="done:" destination="kpD-uZ-KXF" id="BDh-Pe-1ZN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2cL-rC-8dL">
                             <connections>
                                 <segue destination="Dzp-Kv-dVt" kind="push" id="lwT-Ry-oBg"/>
@@ -274,10 +278,10 @@
             </objects>
             <point key="canvasLocation" x="2925" y="-1424"/>
         </scene>
-        <!--View Controller-->
+        <!--Location At Home View Controller-->
         <scene sceneID="ZQS-pd-Ny7">
             <objects>
-                <viewController id="Dzp-Kv-dVt" sceneMemberID="viewController">
+                <viewController id="Dzp-Kv-dVt" customClass="LocationAtHomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="icb-KB-0gw"/>
                         <viewControllerLayoutGuide type="bottom" id="UI5-Xn-oAF"/>
@@ -285,9 +289,39 @@
                     <view key="view" contentMode="scaleToFill" id="BGj-2m-Mv9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G4C-go-I68">
+                                <rect key="frame" x="20" y="84" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Dzp-Kv-dVt" id="pmt-hN-RAx"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter the location an item is expected to be found at home. E.g. 'Pantry' or 'Bathroom'" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="epJ-yl-52m">
+                                <rect key="frame" x="20" y="122" width="560" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="2Wf-2x-G5b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="G4C-go-I68" firstAttribute="trailing" secondItem="BGj-2m-Mv9" secondAttribute="trailingMargin" id="1XD-Kt-VYG"/>
+                            <constraint firstItem="epJ-yl-52m" firstAttribute="leading" secondItem="BGj-2m-Mv9" secondAttribute="leadingMargin" id="J41-7Z-X1t"/>
+                            <constraint firstItem="G4C-go-I68" firstAttribute="leading" secondItem="BGj-2m-Mv9" secondAttribute="leadingMargin" id="LAp-Kg-Fmp"/>
+                            <constraint firstItem="epJ-yl-52m" firstAttribute="trailing" secondItem="BGj-2m-Mv9" secondAttribute="trailingMargin" id="PJH-Zn-XIt"/>
+                            <constraint firstItem="epJ-yl-52m" firstAttribute="top" secondItem="G4C-go-I68" secondAttribute="bottom" constant="8" id="Syz-E8-kxb"/>
+                            <constraint firstItem="G4C-go-I68" firstAttribute="top" secondItem="icb-KB-0gw" secondAttribute="bottom" constant="20" id="h2L-XR-kMb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dXQ-fc-ZR1"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="G4C-go-I68" id="Qht-Vo-8uC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrF-Vf-Wje" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -382,16 +416,16 @@
             </objects>
             <point key="canvasLocation" x="2113" y="-1424"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Location At Shop Table View Controller-->
         <scene sceneID="iZM-GN-iHz">
             <objects>
-                <tableViewController id="BtA-uu-hSY" sceneMemberID="viewController">
+                <tableViewController id="BtA-uu-hSY" customClass="LocationAtShopTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="05I-jG-a6v">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="6vc-Pc-7kO">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LocationAtShop Cell" id="6vc-Pc-7kO">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6vc-Pc-7kO" id="pVk-L5-R7f">
@@ -409,7 +443,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="pB5-M9-D31">
-                        <barButtonItem key="leftBarButtonItem" title="Done" id="6km-uy-n9h"/>
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="6km-uy-n9h">
+                            <connections>
+                                <action selector="done:" destination="BtA-uu-hSY" id="1MY-RF-feP"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jNZ-rn-uuq">
                             <connections>
                                 <segue destination="sFa-fh-EaW" kind="push" id="E78-C0-RkT"/>
@@ -421,10 +459,10 @@
             </objects>
             <point key="canvasLocation" x="2925" y="-687"/>
         </scene>
-        <!--View Controller-->
+        <!--Location At Shop View Controller-->
         <scene sceneID="CtQ-dn-uVM">
             <objects>
-                <viewController id="sFa-fh-EaW" sceneMemberID="viewController">
+                <viewController id="sFa-fh-EaW" customClass="LocationAtShopViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5ZN-ig-N9A"/>
                         <viewControllerLayoutGuide type="bottom" id="RBh-fm-07F"/>
@@ -432,9 +470,39 @@
                     <view key="view" contentMode="scaleToFill" id="eIi-0o-NBu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TC9-Bs-Cj2">
+                                <rect key="frame" x="20" y="84" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sFa-fh-EaW" id="QY3-VN-WbY"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter the location an item is expected to be found at the shop. E.g. ‘Produce Section’ or ‘Deli’" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bg7-LP-TGs">
+                                <rect key="frame" x="20" y="122" width="560" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="pw4-p8-xWh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bg7-LP-TGs" firstAttribute="trailing" secondItem="eIi-0o-NBu" secondAttribute="trailingMargin" id="7sX-wn-5iT"/>
+                            <constraint firstItem="bg7-LP-TGs" firstAttribute="leading" secondItem="eIi-0o-NBu" secondAttribute="leadingMargin" id="8NO-9T-aNe"/>
+                            <constraint firstItem="TC9-Bs-Cj2" firstAttribute="trailing" secondItem="eIi-0o-NBu" secondAttribute="trailingMargin" id="Blg-K7-xSZ"/>
+                            <constraint firstItem="bg7-LP-TGs" firstAttribute="top" secondItem="TC9-Bs-Cj2" secondAttribute="bottom" constant="8" id="bSu-ae-dEe"/>
+                            <constraint firstItem="TC9-Bs-Cj2" firstAttribute="leading" secondItem="eIi-0o-NBu" secondAttribute="leadingMargin" id="kVb-Ek-okw"/>
+                            <constraint firstItem="TC9-Bs-Cj2" firstAttribute="top" secondItem="5ZN-ig-N9A" secondAttribute="bottom" constant="20" id="saA-xQ-Tl6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dcz-hc-mAy"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="TC9-Bs-Cj2" id="kjK-Zi-Q0W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcD-9p-XYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

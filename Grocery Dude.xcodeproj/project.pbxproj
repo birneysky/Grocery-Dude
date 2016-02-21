@@ -10,6 +10,8 @@
 		7441E9291C79985B007FB506 /* UnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7441E9281C79985B007FB506 /* UnitsViewController.m */; };
 		7441E92C1C79AC0B007FB506 /* LocationAtHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7441E92B1C79AC0B007FB506 /* LocationAtHomeTableViewController.m */; };
 		7441E92F1C79AC27007FB506 /* LocationAtShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7441E92E1C79AC27007FB506 /* LocationAtShopTableViewController.m */; };
+		7441E9321C79F3B0007FB506 /* LocationAtHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7441E9311C79F3B0007FB506 /* LocationAtHomeViewController.m */; };
+		7441E9351C79F3C3007FB506 /* LocationAtShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7441E9341C79F3C3007FB506 /* LocationAtShopViewController.m */; };
 		DB0726771C71C1B300AC8C32 /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726741C71C1B300AC8C32 /* Measurement.m */; };
 		DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726761C71C1B300AC8C32 /* Measurement+CoreDataProperties.m */; };
 		DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267B1C71C46700AC8C32 /* Amount+CoreDataProperties.m */; };
@@ -61,6 +63,10 @@
 		7441E92B1C79AC0B007FB506 /* LocationAtHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtHomeTableViewController.m; sourceTree = "<group>"; };
 		7441E92D1C79AC27007FB506 /* LocationAtShopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtShopTableViewController.h; sourceTree = "<group>"; };
 		7441E92E1C79AC27007FB506 /* LocationAtShopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtShopTableViewController.m; sourceTree = "<group>"; };
+		7441E9301C79F3B0007FB506 /* LocationAtHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtHomeViewController.h; sourceTree = "<group>"; };
+		7441E9311C79F3B0007FB506 /* LocationAtHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtHomeViewController.m; sourceTree = "<group>"; };
+		7441E9331C79F3C3007FB506 /* LocationAtShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtShopViewController.h; sourceTree = "<group>"; };
+		7441E9341C79F3C3007FB506 /* LocationAtShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtShopViewController.m; sourceTree = "<group>"; };
 		DB07266C1C71669700AC8C32 /* Grocery_Dude.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Grocery_Dude.pch; sourceTree = "<group>"; };
 		DB0726731C71C1B300AC8C32 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
 		DB0726741C71C1B300AC8C32 /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurement.m; sourceTree = "<group>"; };
@@ -153,6 +159,10 @@
 				DB0726841C71DA0500AC8C32 /* MigrationViewController.m */,
 				7441E9271C79985B007FB506 /* UnitsViewController.h */,
 				7441E9281C79985B007FB506 /* UnitsViewController.m */,
+				7441E9301C79F3B0007FB506 /* LocationAtHomeViewController.h */,
+				7441E9311C79F3B0007FB506 /* LocationAtHomeViewController.m */,
+				7441E9331C79F3C3007FB506 /* LocationAtShopViewController.h */,
+				7441E9341C79F3C3007FB506 /* LocationAtShopViewController.m */,
 			);
 			path = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
@@ -390,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7441E9351C79F3C3007FB506 /* LocationAtShopViewController.m in Sources */,
 				DB2F3CFB1C72C32E00428566 /* Unit.m in Sources */,
 				DB64A6F91C744E0A00D857C6 /* ItemViewController.m in Sources */,
 				DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */,
@@ -412,6 +423,7 @@
 				DB0726771C71C1B300AC8C32 /* Measurement.m in Sources */,
 				DBB7254B1B71ED5C0078CA1F /* main.m in Sources */,
 				DB2F3D1D1C7309CD00428566 /* Location.m in Sources */,
+				7441E9321C79F3B0007FB506 /* LocationAtHomeViewController.m in Sources */,
 				DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */,
 				DB2F3D1B1C7309CD00428566 /* Unit+CoreDataProperties.m in Sources */,
 				7441E92F1C79AC27007FB506 /* LocationAtShopTableViewController.m in Sources */,
