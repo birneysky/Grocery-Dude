@@ -521,12 +521,24 @@
                                     <outlet property="delegate" destination="6w7-yb-VVX" id="0jk-ha-U0H"/>
                                 </connections>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a unit of measurement, E.g.  'ml', 'pkt' or 'items'" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oJK-Rl-jKJ">
+                                <rect key="frame" x="20" y="122" width="560" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="rKH-eW-dJ3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="oJK-Rl-jKJ" firstAttribute="trailing" secondItem="FVY-jl-Q6a" secondAttribute="trailingMargin" id="0xN-gU-mYD"/>
                             <constraint firstItem="Tfg-sz-YE7" firstAttribute="top" secondItem="yGk-TP-fJx" secondAttribute="bottom" constant="20" id="6D0-XL-Kon"/>
                             <constraint firstItem="Tfg-sz-YE7" firstAttribute="leading" secondItem="FVY-jl-Q6a" secondAttribute="leadingMargin" id="9QG-Pp-jmL"/>
                             <constraint firstItem="Tfg-sz-YE7" firstAttribute="trailing" secondItem="FVY-jl-Q6a" secondAttribute="trailingMargin" id="VqX-Lp-pdH"/>
+                            <constraint firstItem="oJK-Rl-jKJ" firstAttribute="top" secondItem="Tfg-sz-YE7" secondAttribute="bottom" constant="8" id="dJZ-qN-HTs"/>
+                            <constraint firstItem="oJK-Rl-jKJ" firstAttribute="leading" secondItem="FVY-jl-Q6a" secondAttribute="leadingMargin" id="dWV-Vr-ttO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jh0-JL-Qtc">

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7441E9291C79985B007FB506 /* UnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7441E9281C79985B007FB506 /* UnitsViewController.m */; };
+		7441E92C1C79AC0B007FB506 /* LocationAtHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7441E92B1C79AC0B007FB506 /* LocationAtHomeTableViewController.m */; };
+		7441E92F1C79AC27007FB506 /* LocationAtShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7441E92E1C79AC27007FB506 /* LocationAtShopTableViewController.m */; };
 		DB0726771C71C1B300AC8C32 /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726741C71C1B300AC8C32 /* Measurement.m */; };
 		DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726761C71C1B300AC8C32 /* Measurement+CoreDataProperties.m */; };
 		DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267B1C71C46700AC8C32 /* Amount+CoreDataProperties.m */; };
@@ -55,6 +57,10 @@
 /* Begin PBXFileReference section */
 		7441E9271C79985B007FB506 /* UnitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsViewController.h; sourceTree = "<group>"; };
 		7441E9281C79985B007FB506 /* UnitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsViewController.m; sourceTree = "<group>"; };
+		7441E92A1C79AC0B007FB506 /* LocationAtHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtHomeTableViewController.h; sourceTree = "<group>"; };
+		7441E92B1C79AC0B007FB506 /* LocationAtHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtHomeTableViewController.m; sourceTree = "<group>"; };
+		7441E92D1C79AC27007FB506 /* LocationAtShopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtShopTableViewController.h; sourceTree = "<group>"; };
+		7441E92E1C79AC27007FB506 /* LocationAtShopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtShopTableViewController.m; sourceTree = "<group>"; };
 		DB07266C1C71669700AC8C32 /* Grocery_Dude.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Grocery_Dude.pch; sourceTree = "<group>"; };
 		DB0726731C71C1B300AC8C32 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
 		DB0726741C71C1B300AC8C32 /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurement.m; sourceTree = "<group>"; };
@@ -164,6 +170,10 @@
 				DB64A6F81C744E0A00D857C6 /* ItemViewController.m */,
 				DB1F1A2C1C76E32D00FA73F4 /* UnitsTableViewController.h */,
 				DB1F1A2D1C76E32D00FA73F4 /* UnitsTableViewController.m */,
+				7441E92A1C79AC0B007FB506 /* LocationAtHomeTableViewController.h */,
+				7441E92B1C79AC0B007FB506 /* LocationAtHomeTableViewController.m */,
+				7441E92D1C79AC27007FB506 /* LocationAtShopTableViewController.h */,
+				7441E92E1C79AC27007FB506 /* LocationAtShopTableViewController.m */,
 			);
 			path = "Grocery Dude Table View Controller";
 			sourceTree = "<group>";
@@ -394,6 +404,7 @@
 				DB2F3CFD1C72C3AE00428566 /* Model3toModel4.xcmappingmodel in Sources */,
 				DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */,
 				DB2F3CFA1C72C32E00428566 /* Unit+CoreDataProperties.m in Sources */,
+				7441E92C1C79AC0B007FB506 /* LocationAtHomeTableViewController.m in Sources */,
 				7441E9291C79985B007FB506 /* UnitsViewController.m in Sources */,
 				DBB7257B1B7208CB0078CA1F /* Model.xcdatamodeld in Sources */,
 				DBB725781B7208770078CA1F /* CoreDataHelper.m in Sources */,
@@ -403,6 +414,7 @@
 				DB2F3D1D1C7309CD00428566 /* Location.m in Sources */,
 				DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */,
 				DB2F3D1B1C7309CD00428566 /* Unit+CoreDataProperties.m in Sources */,
+				7441E92F1C79AC27007FB506 /* LocationAtShopTableViewController.m in Sources */,
 				DB2F3D1C1C7309CD00428566 /* Location+CoreDataProperties.m in Sources */,
 				DB2F3D1A1C7309CD00428566 /* LocationAtShop.m in Sources */,
 				DB0726811C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel in Sources */,
