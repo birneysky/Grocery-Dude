@@ -8,6 +8,6 @@
 
 #import "CoreDataTableViewController.h"
 
-@interface UnitsViewController : CoreDataTableViewController
+@interface UnitsTableViewController : CoreDataTableViewController
 
 @end

@@ -2,7 +2,7 @@
 //  UnitsViewController.m
 //  Grocery Dude
 //
-//  Created by zhangguang on 16/2/19.
+//  Created by birneysky on 16/2/21.
 //  Copyright © 2016年 com.v2tech. All rights reserved.
 //
 
@@ -33,11 +33,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-#pragma mark - ***Target Action ***
-
-- (IBAction)done:(id)sender {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-}
 
 @end

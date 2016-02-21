@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7441E9291C79985B007FB506 /* UnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7441E9281C79985B007FB506 /* UnitsViewController.m */; };
 		DB0726771C71C1B300AC8C32 /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726741C71C1B300AC8C32 /* Measurement.m */; };
 		DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726761C71C1B300AC8C32 /* Measurement+CoreDataProperties.m */; };
 		DB07267E1C71C46700AC8C32 /* Amount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267B1C71C46700AC8C32 /* Amount+CoreDataProperties.m */; };
 		DB07267F1C71C46700AC8C32 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = DB07267D1C71C46700AC8C32 /* Amount.m */; };
 		DB0726811C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */; };
 		DB0726851C71DA0500AC8C32 /* MigrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0726841C71DA0500AC8C32 /* MigrationViewController.m */; };
-		DB1F1A2E1C76E32D00FA73F4 /* UnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F1A2D1C76E32D00FA73F4 /* UnitsViewController.m */; };
+		DB1F1A2E1C76E32D00FA73F4 /* UnitsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F1A2D1C76E32D00FA73F4 /* UnitsTableViewController.m */; };
 		DB2F3CFA1C72C32E00428566 /* Unit+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3CF71C72C32E00428566 /* Unit+CoreDataProperties.m */; };
 		DB2F3CFB1C72C32E00428566 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3CF91C72C32E00428566 /* Unit.m */; };
 		DB2F3CFD1C72C3AE00428566 /* Model3toModel4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3CFC1C72C3AE00428566 /* Model3toModel4.xcmappingmodel */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7441E9271C79985B007FB506 /* UnitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsViewController.h; sourceTree = "<group>"; };
+		7441E9281C79985B007FB506 /* UnitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsViewController.m; sourceTree = "<group>"; };
 		DB07266C1C71669700AC8C32 /* Grocery_Dude.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Grocery_Dude.pch; sourceTree = "<group>"; };
 		DB0726731C71C1B300AC8C32 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
 		DB0726741C71C1B300AC8C32 /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurement.m; sourceTree = "<group>"; };
@@ -65,8 +68,8 @@
 		DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2toModel3.xcmappingmodel; sourceTree = "<group>"; };
 		DB0726831C71DA0500AC8C32 /* MigrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MigrationViewController.h; sourceTree = "<group>"; };
 		DB0726841C71DA0500AC8C32 /* MigrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationViewController.m; sourceTree = "<group>"; };
-		DB1F1A2C1C76E32D00FA73F4 /* UnitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsViewController.h; sourceTree = "<group>"; };
-		DB1F1A2D1C76E32D00FA73F4 /* UnitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsViewController.m; sourceTree = "<group>"; };
+		DB1F1A2C1C76E32D00FA73F4 /* UnitsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsTableViewController.h; sourceTree = "<group>"; };
+		DB1F1A2D1C76E32D00FA73F4 /* UnitsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsTableViewController.m; sourceTree = "<group>"; };
 		DB2F3CF51C72C2CF00428566 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		DB2F3CF61C72C32E00428566 /* Unit+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Unit+CoreDataProperties.h"; sourceTree = "<group>"; };
 		DB2F3CF71C72C32E00428566 /* Unit+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Unit+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 			children = (
 				DB0726831C71DA0500AC8C32 /* MigrationViewController.h */,
 				DB0726841C71DA0500AC8C32 /* MigrationViewController.m */,
+				7441E9271C79985B007FB506 /* UnitsViewController.h */,
+				7441E9281C79985B007FB506 /* UnitsViewController.m */,
 			);
 			path = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
@@ -157,8 +162,8 @@
 				DB64A6F51C7425D000D857C6 /* ShopTableViewController.m */,
 				DB64A6F71C744E0A00D857C6 /* ItemViewController.h */,
 				DB64A6F81C744E0A00D857C6 /* ItemViewController.m */,
-				DB1F1A2C1C76E32D00FA73F4 /* UnitsViewController.h */,
-				DB1F1A2D1C76E32D00FA73F4 /* UnitsViewController.m */,
+				DB1F1A2C1C76E32D00FA73F4 /* UnitsTableViewController.h */,
+				DB1F1A2D1C76E32D00FA73F4 /* UnitsTableViewController.m */,
 			);
 			path = "Grocery Dude Table View Controller";
 			sourceTree = "<group>";
@@ -381,7 +386,7 @@
 				DB2F3D241C732A2300428566 /* CoreDataTableViewController.m in Sources */,
 				DB2F3D181C7309CD00428566 /* LocationAtHome.m in Sources */,
 				DBB7257E1B7218740078CA1F /* Item.m in Sources */,
-				DB1F1A2E1C76E32D00FA73F4 /* UnitsViewController.m in Sources */,
+				DB1F1A2E1C76E32D00FA73F4 /* UnitsTableViewController.m in Sources */,
 				DB2F3D271C732A5500428566 /* PrepareTableViewController.m in Sources */,
 				DB2F3D171C7309CD00428566 /* LocationAtHome+CoreDataProperties.m in Sources */,
 				DB64A6F61C7425D000D857C6 /* ShopTableViewController.m in Sources */,
@@ -389,6 +394,7 @@
 				DB2F3CFD1C72C3AE00428566 /* Model3toModel4.xcmappingmodel in Sources */,
 				DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */,
 				DB2F3CFA1C72C32E00428566 /* Unit+CoreDataProperties.m in Sources */,
+				7441E9291C79985B007FB506 /* UnitsViewController.m in Sources */,
 				DBB7257B1B7208CB0078CA1F /* Model.xcdatamodeld in Sources */,
 				DBB725781B7208770078CA1F /* CoreDataHelper.m in Sources */,
 				DB0726851C71DA0500AC8C32 /* MigrationViewController.m in Sources */,
