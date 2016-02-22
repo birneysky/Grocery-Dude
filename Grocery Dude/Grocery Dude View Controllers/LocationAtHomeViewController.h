@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface LocationAtHomeViewController : UIViewController
+
+@property (strong,nonatomic) NSManagedObjectID* selectItemID;
 
 @end

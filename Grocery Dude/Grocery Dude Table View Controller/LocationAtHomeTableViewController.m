@@ -9,6 +9,7 @@
 #import "LocationAtHomeTableViewController.h"
 #import "AppDelegate.h"
 #import "LocationAtHome+CoreDataProperties.h"
+#import "LocationAtHomeViewController.h"
 
 
 @interface LocationAtHomeTableViewController ()
@@ -64,14 +65,32 @@
     cell.textLabel.text = locationAtHome.storedin;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    LocationAtHomeViewController* lahVC = segue.destinationViewController;
+    
+    if ([segue.identifier isEqualToString:@"Add Object Segue"]) {
+        CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
+        LocationAtHome* locationAtHome = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtHome" inManagedObjectContext:cdh.context];
+        NSError* error = nil;
+        if (![cdh.context obtainPermanentIDsForObjects:@[locationAtHome] error:&error]) {
+            DebugLog(@"Could't obtain a permanent id for Objets:%@",error);
+        }
+        lahVC.selectItemID = [locationAtHome objectID];
+    }
+    else if ([segue.identifier isEqualToString:@"Edit Object Segue"]){
+        NSIndexPath* selectIndexPath = [self.tableView indexPathForSelectedRow];
+        LocationAtHome* locationAtHome = [self.frc objectAtIndexPath:selectIndexPath];
+        lahVC.selectItemID = [locationAtHome objectID];
+    }
+    else
+    {
+        TRACE(@"Unidentified segue attemp!");
+    }
 }
-*/
+
 
 @end

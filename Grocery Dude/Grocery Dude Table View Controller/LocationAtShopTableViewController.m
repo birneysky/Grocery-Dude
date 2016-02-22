@@ -9,6 +9,7 @@
 #import "LocationAtShopTableViewController.h"
 #import "AppDelegate.h"
 #import "LocationAtShop+CoreDataProperties.h"
+#import "LocationAtShopViewController.h"
 
 @interface LocationAtShopTableViewController ()
 
@@ -59,14 +60,30 @@
     cell.textLabel.text = locationAtShop.aisle;
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    LocationAtShopViewController* lasVc = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"Add Object Segue"]) {
+        CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
+        LocationAtShop* newLocationAtShop = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtShop" inManagedObjectContext:cdh.context];
+        NSError* error = nil;
+        if ([cdh.context obtainPermanentIDsForObjects:@[newLocationAtShop] error:&error]) {
+            DebugLog(@"Could't obtain a permanetn ID for objects:%@",error);
+        }
+        lasVc.selectItemID = [newLocationAtShop objectID];
+    }
+    else if ([segue.identifier isEqualToString:@"Edit Object Segue"]){
+        NSIndexPath* selectIndexPath = [self.tableView indexPathForSelectedRow];
+        LocationAtShop* locationAtShop = [self.frc objectAtIndexPath:selectIndexPath];
+        lasVc.selectItemID = [locationAtShop objectID];
+    }
+    else
+    {
+        TRACE(@"Unidentified segue attemped!");
+    }
 }
-*/
+
 
 @end
