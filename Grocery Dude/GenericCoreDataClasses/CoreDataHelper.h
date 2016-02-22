@@ -56,3 +56,12 @@
 - (void)showValidationError:(NSError*)anError;
 
 @end
+
+/*
+ Core Data
+     Core Data是OS X 10.4 Tiger之后引入的一个持久化技术，通过与数据库进行交互，将模型的状态持久化到磁盘。
+   使用了对象-关系映射（ORM）技术，很好的将数据中的表和字段转化为对象和属性，同时将表之间的关系转化成了对象之间的包含关系。
+ 
+ Core Data中的几个重要的
+ 
+ */
