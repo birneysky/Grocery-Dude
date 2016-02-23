@@ -76,6 +76,7 @@
         Item* item = [cdh.context existingObjectWithID:self.selectedItemID error:nil];
         self.nameTextField.text = item.name;
         self.quantityTextField.text = item.quantity.stringValue;
+        self.unitPickerTextField.text = item.unit.name;
     }
 }
 
