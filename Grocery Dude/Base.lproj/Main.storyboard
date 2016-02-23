@@ -151,7 +151,7 @@
                                             <outlet property="delegate" destination="Dh2-Jc-XZs" id="SnM-yd-scw"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pMx-4M-eXX" customClass="UnitPickerTF">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pMx-4M-eXX" customClass="UnitPickerTF">
                                         <rect key="frame" x="113" y="59" width="423" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -195,6 +195,7 @@
                                     <constraint firstItem="n4d-mi-UjU" firstAttribute="top" secondItem="tge-5i-3Yl" secondAttribute="top" id="2Fk-sa-58b"/>
                                     <constraint firstItem="7me-pY-qzS" firstAttribute="leading" secondItem="tge-5i-3Yl" secondAttribute="leading" constant="8" id="7rI-v8-GW9"/>
                                     <constraint firstItem="7me-pY-qzS" firstAttribute="top" secondItem="tge-5i-3Yl" secondAttribute="top" constant="21" id="BKg-E7-VNT"/>
+                                    <constraint firstItem="pMx-4M-eXX" firstAttribute="leading" secondItem="ifN-3n-uyM" secondAttribute="trailing" constant="8" id="DfG-rH-KTZ"/>
                                     <constraint firstAttribute="trailing" secondItem="7me-pY-qzS" secondAttribute="trailing" constant="8" id="QGp-f0-CO7"/>
                                     <constraint firstItem="ifN-3n-uyM" firstAttribute="top" secondItem="7me-pY-qzS" secondAttribute="bottom" constant="8" id="RZ8-NV-9yx"/>
                                     <constraint firstAttribute="trailing" secondItem="gOB-81-hUH" secondAttribute="trailing" constant="8" id="S4r-rM-dIw"/>
@@ -205,8 +206,10 @@
                                     <constraint firstItem="n4d-mi-UjU" firstAttribute="height" secondItem="tge-5i-3Yl" secondAttribute="height" id="bhm-sn-TPY"/>
                                     <constraint firstAttribute="trailing" secondItem="0He-bU-q9G" secondAttribute="trailing" constant="8" id="kJq-Ro-ZHe"/>
                                     <constraint firstItem="n4d-mi-UjU" firstAttribute="width" secondItem="tge-5i-3Yl" secondAttribute="width" id="n4q-KE-piA"/>
+                                    <constraint firstItem="pMx-4M-eXX" firstAttribute="top" secondItem="7me-pY-qzS" secondAttribute="bottom" constant="8" id="pEp-9t-dN4"/>
                                     <constraint firstAttribute="trailing" secondItem="n4d-mi-UjU" secondAttribute="trailing" id="ptL-Lu-rU7"/>
                                     <constraint firstItem="0He-bU-q9G" firstAttribute="top" secondItem="7me-pY-qzS" secondAttribute="bottom" constant="8" id="uDJ-Ne-JHy"/>
+                                    <constraint firstItem="0He-bU-q9G" firstAttribute="leading" secondItem="pMx-4M-eXX" secondAttribute="trailing" constant="8" id="vER-wu-dmF"/>
                                     <constraint firstItem="ifN-3n-uyM" firstAttribute="leading" secondItem="tge-5i-3Yl" secondAttribute="leading" constant="8" id="xDI-GW-ybW"/>
                                     <constraint firstAttribute="bottom" secondItem="n4d-mi-UjU" secondAttribute="bottom" id="z1P-6i-ECd"/>
                                 </constraints>
