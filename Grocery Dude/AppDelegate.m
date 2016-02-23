@@ -173,19 +173,19 @@
 
 - (void)demo4
 {
-    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Measurement"];
-    [request setFetchLimit:50];
-    NSError* error = nil;
-    NSArray* objects = [self.coreDataHelper.context executeFetchRequest:request error:&error];
-    if (error) {
-        DebugLog(@"%@",error);
-    }
-    else
-    {
-        for (Measurement* measurement in objects) {
-            //NSLog(@"")
-        }
-    }
+//    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Measurement"];
+//    [request setFetchLimit:50];
+//    NSError* error = nil;
+//    NSArray* objects = [self.coreDataHelper.context executeFetchRequest:request error:&error];
+//    if (error) {
+//        DebugLog(@"%@",error);
+//    }
+//    else
+//    {
+//        for (Measurement* measurement in objects) {
+//            //NSLog(@"")
+//        }
+//    }
 }
 
 - (void)demo5
