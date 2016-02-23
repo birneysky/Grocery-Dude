@@ -47,7 +47,9 @@
 /*判断数据是否需要迁移*/
 - (BOOL)isMigrationNecessaryForStore:(NSURL*)storeUrl;
 
-- (BOOL) migrateStore:(NSURL*)sourceStore;
+- (BOOL)migrateStore:(NSURL*)sourceStore;
+
+- (void)checkIfDefaultDataNeedsImporting;
 
 - (void)setupCoreData;
 
@@ -62,6 +64,27 @@
      Core Data是OS X 10.4 Tiger之后引入的一个持久化技术，通过与数据库进行交互，将模型的状态持久化到磁盘。
    使用了对象-关系映射（ORM）技术，很好的将数据中的表和字段转化为对象和属性，同时将表之间的关系转化成了对象之间的包含关系。
  
- Core Data中的几个重要的
+ Core Data中的几个重要的概念
+    1. Entity 实体
+        我们可以在.xcdatamodel 文件中创建一些实体，并为其添加相应的属性和关系。这些实体和属性很类似于关系型数据库中表和字段的概念。
+        实体和属性与数据库中的表和字段相互映射
+    2. NSEntityDescription 实体对象描述
+        描述了一个实体的基本属性，包括实体名，类名，属性，关系等等，可以通过实体描述来实例化托管对象。
+        insertNewObjectForEntityForName: inManagedObjectContext:
+    3.NSManagedObjectModel 托管对象模型（MOM）
+        是实体对象描述（NSEntityDescription）集合。通过.mom 或者 .momd文件来实例化。.mom 或者 .momd是.xcdatamodel编译后得到的。
+        mergedModelFromBundles
+    4.NSManagedObject 托管对象 （MO）
+        Entity 是一个模型，实体对象描述（NSEntityDescription）记录了这个模型的内容，对这个模型进行描述。然而MO才是正真要操作的东西。
+        每一个MO都对应着一个实体并且有唯一的ID。因此它能够对应数据库中的某一条记录。
+    5.NSManagedObjectContext 托管对象上下文 （ MOC)
+        对MO的操作如何被数据库知道，并进行同步呢？这就需要MOC了，为什么我们操作的对象是托管的呢，这是因为使用了MOC监听MO。MOC作为监听者，
+        当MO放生变化时，MOC知道它监听的MO对象发生了变化，然后就可以将这些改变提交给PSC，PSC将同数据库打交道来实现数据同步
+    6.NSPersistentStoreCoordinator 持久化存储协调器 (PSC)
+        PSC 使用NSPersistentStore对象与数据库交互，NSPersistentStore对象会将MOC提交的改变同步到数据库中。PSC是通过MOM进行实例化的（initWithManagedObjectModel:）
+        一方面是因为它需要与数据库和上下文交互，所以需要知道所有实体描述才能正确的传达信息；二是因为在PSC初始化时，它会检测指定路径下是否有相应的数据库，如果没有则进行创建，
+        所以它需要知道所有的实体描述来创建数据库。同时如果指定路径中存在数据库，那么它会将最新的MOM与当前数据库进行比对，看是否存在最新的MOM中的实体与属性等与沙盒中数据库的表和字段等不一致的情况，（如果不一致，会创建新的数据库取代老数据库，老数据库中的数据将会丢失，这也是为什么我们需要做数据迁移的操作了）。
+ 
+   总结成一句话其实就是：创建MO使用MOC去监听，然后在操作完MO后，使用MOC 进行保存，将改变提交给PSC，然后PSC与数据库交互同步数据
  
  */

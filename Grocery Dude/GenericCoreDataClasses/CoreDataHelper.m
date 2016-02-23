@@ -13,6 +13,8 @@
 
 @property (nonatomic,strong)MigrationViewController* migrationVC;
 
+@property (nonatomic,strong) UIAlertView* importAlertView;
+
 @end
 
 @implementation CoreDataHelper
@@ -187,6 +189,34 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
         DebugLog(@"FAILED TO remove old store %@ : Error: %@",old,error);
     }
     return sucess;
+}
+
+- (BOOL)isDefaultDataAlreadyImportedForStoreWithURL:(NSURL*)url ofType:(NSString*)type
+{
+    NSError* error;
+    NSDictionary* dictionary = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:type URL:url error:&error];
+    if (error) {
+        DebugLog(@"Error reading persistent store metadata : %@",error.localizedDescription);
+    }
+    else{
+        NSNumber* defaultDataAlreadyImported = [dictionary valueForKey:@"DefaultDataImported"];
+        if (![defaultDataAlreadyImported boolValue]) {
+            TRACE(@"Default Data has Not already been imported");
+            return NO;
+        }
+    }
+    
+    TRACE(@"Default Data Has already been imported");
+    
+    return YES;
+}
+
+- (void)checkIfDefaultDataNeedsImporting
+{
+    if (![self isDefaultDataAlreadyImportedForStoreWithURL:[self stroreURL] ofType:NSSQLiteStoreType]) {
+        self.importAlertView = [[UIAlertView alloc] initWithTitle:@"Import Default Data" message:@"If you've never used Grocery Dude before then some default data might help you understand how to use it. Tap 'Import' to import default data. Tap'Cancel' to skip the import,especially if you've done this before on other devices" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import", nil];
+        [self.importAlertView show];
+    }
 }
 
 #pragma mark - *** KeyPath Observer ***
