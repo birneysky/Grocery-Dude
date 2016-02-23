@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet LocationAtHomePickerTF *locationAtHomePickerTextField;
 
 @property (weak, nonatomic) IBOutlet LocationAtShopPickerTF *locationAtShopPickerTextField;
+
+@property (weak, nonatomic) UITextField* activeTextField;
 @end
 
 @implementation ItemViewController
@@ -54,6 +56,9 @@
     [self ensureItemHomeLocationIsNotNUll];
     [self ensureItemShopLocationIsNotNULL];
     [self refreshInterface];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -61,6 +66,8 @@
     [super viewDidDisappear:animated];
     [self ensureItemHomeLocationIsNotNUll];
     [self ensureItemShopLocationIsNotNULL];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
       CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
     [cdh saveContext];
 }
@@ -173,7 +180,7 @@
         [self.locationAtShopPickerTextField fetch];
         [self.locationAtShopPickerTextField.picker reloadAllComponents];
     }
-        
+    self.activeTextField = textField;
 }
 
 
@@ -243,4 +250,22 @@
         [self refreshInterface];
     }
 }
+
+#pragma mark - *** Notification Selector ***
+- (void)keyboardDidShow:(NSNotification*)notification
+{
+    /*获取InputView 的区域*/
+    CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+    
+    //CGFloat keyboardTop = keyboardRect.origin.y;
+    
+    [self.scrollView scrollRectToVisible:self.activeTextField.frame animated:YES];
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification
+{
+     [self.scrollView scrollRectToVisible:CGRectMake(0, 0, self.view.frame.size.width, 50) animated:YES];
+}
+
 @end
