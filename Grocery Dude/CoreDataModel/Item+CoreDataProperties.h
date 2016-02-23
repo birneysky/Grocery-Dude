@@ -11,6 +11,8 @@
 
 #import "Item.h"
 #import "Unit+CoreDataProperties.h"
+#import "LocationAtShop+CoreDataProperties.h"
+#import "LocationAtHome+CoreDataProperties.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,8 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSData *photoData;
 @property (nullable, nonatomic, retain) NSNumber *quantity;
 @property (nullable, nonatomic, retain) Unit *unit;
-@property (nullable, nonatomic, retain) NSManagedObject *locationAtHome;
-@property (nullable, nonatomic, retain) NSManagedObject *locationAtShop;
+@property (nullable, nonatomic, retain) LocationAtHome *locationAtHome;
+@property (nullable, nonatomic, retain) LocationAtShop *locationAtShop;
 
 @end
 

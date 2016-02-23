@@ -17,7 +17,7 @@
 {
     CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"LocationAtHome"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"storedin" ascending:YES]];
     [request setFetchBatchSize:50];
     NSError* erro = nil;
     self.pickerData = [cdh.context executeFetchRequest:request error:&erro];

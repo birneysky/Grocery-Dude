@@ -164,7 +164,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LocationAtHome" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iGS-gy-A2O">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LocationAtHome" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iGS-gy-A2O" customClass="LocationAtHomePickerTF">
                                         <rect key="frame" x="8" y="125" width="532" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="EXm-4J-iea"/>
@@ -184,7 +184,7 @@
                                             <outlet property="delegate" destination="Dh2-Jc-XZs" id="H5x-T7-gZQ"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LocationAtShop" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-BC-zSP">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LocationAtShop" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-BC-zSP" customClass="LocationAtShopPickerTF">
                                         <rect key="frame" x="8" y="177" width="532" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="eSR-aT-MEs"/>
@@ -265,6 +265,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="locationAtHomePickerTextField" destination="iGS-gy-A2O" id="GKC-FF-LGc"/>
+                        <outlet property="locationAtShopPickerTextField" destination="ceh-BC-zSP" id="9Ef-ig-g34"/>
                         <outlet property="nameTextField" destination="7me-pY-qzS" id="Xmx-bA-3rb"/>
                         <outlet property="quantityTextField" destination="ifN-3n-uyM" id="SbZ-tC-nh3"/>
                         <outlet property="scrollView" destination="tge-5i-3Yl" id="SYM-gy-IzD"/>
