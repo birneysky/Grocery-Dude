@@ -39,6 +39,12 @@
     
     self.unitPickerTextField.delegate = self;
     self.unitPickerTextField.pickerDelegate = self;
+    
+    self.locationAtHomePickerTextField.delegate = self;
+    self.locationAtHomePickerTextField.pickerDelegate = self;
+    
+    self.locationAtShopPickerTextField.delegate = self;
+    self.locationAtShopPickerTextField.pickerDelegate = self;
 }
 
 

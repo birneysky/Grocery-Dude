@@ -11,6 +11,12 @@
 #import "AppDelegate.h"
 
 @implementation LocationAtHomePickerTF
+#pragma mark - *** UIPicker DataSource ***
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    LocationAtHome* locationAtHone = [self.pickerData objectAtIndex:row];
+    return locationAtHone.storedin;
+}
 
 #pragma mark - *** Helper ***
 - (void)fetch
@@ -29,7 +35,7 @@
 
 - (void)selectDefaultRow
 {
-    if (self.selectObjectID && self.pickerData.count) {
+    if (self.selectObjectID && self.pickerData.count > 0) {
         CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
         LocationAtHome* selectObject = [cdh.context existingObjectWithID:self.selectObjectID error:nil];
         [self.pickerData enumerateObjectsUsingBlock:^(LocationAtHome*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

@@ -11,7 +11,14 @@
 #import "AppDelegate.h"
 
 @implementation LocationAtShopPickerTF
+#pragma mark - *** UIPicker DataSource ***
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    LocationAtShop* locationShop = [self.pickerData objectAtIndex:row];
+    return locationShop.aisle;
+}
 
+#pragma mark - *** Helper ***
 - (void)fetch
 {
     CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
