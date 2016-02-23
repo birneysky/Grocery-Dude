@@ -36,4 +36,6 @@
 
 @property (nonatomic,strong) NSManagedObjectID* selectObjectID;
 
+- (void)fetch;
+
 @end

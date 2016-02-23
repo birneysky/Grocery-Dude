@@ -151,6 +151,11 @@
                                             <outlet property="delegate" destination="Dh2-Jc-XZs" id="SnM-yd-scw"/>
                                         </connections>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pMx-4M-eXX" customClass="UnitPickerTF">
+                                        <rect key="frame" x="113" y="59" width="423" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Qty" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ifN-3n-uyM">
                                         <rect key="frame" x="8" y="59" width="97" height="30"/>
                                         <constraints>
@@ -229,6 +234,7 @@
                         <outlet property="nameTextField" destination="7me-pY-qzS" id="Xmx-bA-3rb"/>
                         <outlet property="quantityTextField" destination="ifN-3n-uyM" id="SbZ-tC-nh3"/>
                         <outlet property="scrollView" destination="tge-5i-3Yl" id="SYM-gy-IzD"/>
+                        <outlet property="unitPickerTextField" destination="pMx-4M-eXX" id="3yB-JV-uYU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1a-dL-g2q" userLabel="First Responder" sceneMemberID="firstResponder"/>

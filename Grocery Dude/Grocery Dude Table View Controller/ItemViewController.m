@@ -12,14 +12,17 @@
 #import "Item+CoreDataProperties.h"
 #import "LocationAtHome+CoreDataProperties.h"
 #import "LocationAtShop+CoreDataProperties.h"
+#import "UnitPickerTF.h"
 
-@interface ItemViewController () <UITextFieldDelegate>
+@interface ItemViewController () <UITextFieldDelegate,CoreDataPickerTFDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 
 @property (weak, nonatomic) IBOutlet UITextField *quantityTextField;
+
+@property (weak, nonatomic) IBOutlet UnitPickerTF *unitPickerTextField;
 @end
 
 @implementation ItemViewController
@@ -27,6 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self hideKeyboardWhenBackgroundIsTapped];
+    
+    self.unitPickerTextField.delegate = self;
+    self.unitPickerTextField.pickerDelegate = self;
 }
 
 
@@ -140,6 +146,10 @@
             self.nameTextField.text = @"";
         }
     }
+    else if (textField == self.unitPickerTextField && self.unitPickerTextField.picker){
+        [self.unitPickerTextField fetch];
+        [self.unitPickerTextField.picker reloadAllComponents];
+    }
 }
 
 
@@ -160,5 +170,35 @@
     }
 }
 
+#pragma mark - *** CoreDataPickerTFDelegate ***
+- (void)selectedObjectID:(NSManagedObjectID *)objectID changedForPickerTF:(CoreDataPickerTF *)pickerTF
+{
+    if (self.selectedItemID) {
+        CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
+        Item* item = [cdh.context existingObjectWithID:self.selectedItemID error:nil];
+        
+        NSError* error = nil;
+        if (self.unitPickerTextField == pickerTF) {
+            Unit* unit = [cdh.context existingObjectWithID:objectID error:&error];
+            item.unit = unit;
+            self.unitPickerTextField.text = item.unit.name;
+        }
+        
+        [self refreshInterface];
+    }
+}
 
+- (void)selectedObjectClearedForPickerTF:(CoreDataPickerTF *)pickerTF
+{
+    if (self.selectedItemID) {
+        CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
+        Item* item = [cdh.context existingObjectWithID:self.selectedItemID error:nil];
+        if (self.unitPickerTextField == pickerTF) {
+            item.unit = nil;
+            self.unitPickerTextField.text = @"";
+        }
+        
+        [self refreshInterface];
+    }
+}
 @end
