@@ -37,6 +37,7 @@
 		DB77931E1C7BFB2800BCFC5E /* CoreDataPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB77931D1C7BFB2800BCFC5E /* CoreDataPickerTF.m */; };
 		DB7793211C7C097000BCFC5E /* UnitPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7793201C7C097000BCFC5E /* UnitPickerTF.m */; };
 		DB7793241C7C19EC00BCFC5E /* LocationAtHomePickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7793231C7C19EC00BCFC5E /* LocationAtHomePickerTF.m */; };
+		DB7793271C7C1A2200BCFC5E /* LocationAtShopPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7793261C7C1A2200BCFC5E /* LocationAtShopPickerTF.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725521B71ED5C0078CA1F /* Main.storyboard */; };
@@ -123,6 +124,8 @@
 		DB7793201C7C097000BCFC5E /* UnitPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitPickerTF.m; sourceTree = "<group>"; };
 		DB7793221C7C19EC00BCFC5E /* LocationAtHomePickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtHomePickerTF.h; sourceTree = "<group>"; };
 		DB7793231C7C19EC00BCFC5E /* LocationAtHomePickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtHomePickerTF.m; sourceTree = "<group>"; };
+		DB7793251C7C1A2200BCFC5E /* LocationAtShopPickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtShopPickerTF.h; sourceTree = "<group>"; };
+		DB7793261C7C1A2200BCFC5E /* LocationAtShopPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtShopPickerTF.m; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBB7254A1B71ED5C0078CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				DB7793201C7C097000BCFC5E /* UnitPickerTF.m */,
 				DB7793221C7C19EC00BCFC5E /* LocationAtHomePickerTF.h */,
 				DB7793231C7C19EC00BCFC5E /* LocationAtHomePickerTF.m */,
+				DB7793251C7C1A2200BCFC5E /* LocationAtShopPickerTF.h */,
+				DB7793261C7C1A2200BCFC5E /* LocationAtShopPickerTF.m */,
 			);
 			path = "Grocery Dude View";
 			sourceTree = "<group>";
@@ -454,6 +459,7 @@
 				7441E92F1C79AC27007FB506 /* LocationAtShopTableViewController.m in Sources */,
 				DB2F3D1C1C7309CD00428566 /* Location+CoreDataProperties.m in Sources */,
 				DB2F3D1A1C7309CD00428566 /* LocationAtShop.m in Sources */,
+				DB7793271C7C1A2200BCFC5E /* LocationAtShopPickerTF.m in Sources */,
 				DB77931E1C7BFB2800BCFC5E /* CoreDataPickerTF.m in Sources */,
 				DB0726811C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel in Sources */,
 				DB2F3D191C7309CD00428566 /* LocationAtShop+CoreDataProperties.m in Sources */,
