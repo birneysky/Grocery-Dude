@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sGv-Kh-4rt">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sGv-Kh-4rt">
+>>>>>>> 9d38da98ec7b298bad8d204766f7b035263e069a
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -252,7 +256,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Dzp-Kv-dVt" kind="push" id="9MI-G1-2lT"/>
+                                    <segue destination="Dzp-Kv-dVt" kind="push" identifier="Edit Object Segue" id="9MI-G1-2lT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -269,7 +273,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2cL-rC-8dL">
                             <connections>
-                                <segue destination="Dzp-Kv-dVt" kind="push" id="lwT-Ry-oBg"/>
+                                <segue destination="Dzp-Kv-dVt" kind="push" identifier="Add Object Segue" id="lwT-Ry-oBg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -318,7 +322,13 @@
                             <constraint firstItem="G4C-go-I68" firstAttribute="top" secondItem="icb-KB-0gw" secondAttribute="bottom" constant="20" id="h2L-XR-kMb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dXQ-fc-ZR1"/>
+                    <navigationItem key="navigationItem" id="dXQ-fc-ZR1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="VnI-8e-NE3">
+                            <connections>
+                                <action selector="done:" destination="Dzp-Kv-dVt" id="8qp-Q7-xMA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="G4C-go-I68" id="Qht-Vo-8uC"/>
                     </connections>
@@ -433,7 +443,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="sFa-fh-EaW" kind="push" id="xVt-bJ-8Bu"/>
+                                    <segue destination="sFa-fh-EaW" kind="push" identifier="Edit Object Segue" id="xVt-bJ-8Bu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -450,7 +460,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jNZ-rn-uuq">
                             <connections>
-                                <segue destination="sFa-fh-EaW" kind="push" id="E78-C0-RkT"/>
+                                <segue destination="sFa-fh-EaW" kind="push" identifier="Add Object Segue" id="E78-C0-RkT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -499,7 +509,13 @@
                             <constraint firstItem="TC9-Bs-Cj2" firstAttribute="top" secondItem="5ZN-ig-N9A" secondAttribute="bottom" constant="20" id="saA-xQ-Tl6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dcz-hc-mAy"/>
+                    <navigationItem key="navigationItem" id="dcz-hc-mAy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cUx-zd-U3q">
+                            <connections>
+                                <action selector="done:" destination="sFa-fh-EaW" id="hrq-Cp-YCi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="TC9-Bs-Cj2" id="kjK-Zi-Q0W"/>
                     </connections>
@@ -651,9 +667,9 @@
         <image name="shop" width="30" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2MG-4B-2tQ"/>
-        <segue reference="g5l-N9-oQ0"/>
         <segue reference="9MI-G1-2lT"/>
-        <segue reference="xVt-bJ-8Bu"/>
+        <segue reference="g5l-N9-oQ0"/>
+        <segue reference="2MG-4B-2tQ"/>
+        <segue reference="E78-C0-RkT"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self hideKeyboardWhenBackgroundIsTapped];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -38,6 +38,7 @@
 {
     if (self.selectItemID) {
         CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
+        //Returns the object for the specified ID.
         Unit* unit = [cdh.context existingObjectWithID:self.selectItemID error:nil];
         self.nameTextField.text = unit.name;
     }
