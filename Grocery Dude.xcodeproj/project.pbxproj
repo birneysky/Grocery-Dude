@@ -35,6 +35,7 @@
 		DB64A6F61C7425D000D857C6 /* ShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB64A6F51C7425D000D857C6 /* ShopTableViewController.m */; };
 		DB64A6F91C744E0A00D857C6 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB64A6F81C744E0A00D857C6 /* ItemViewController.m */; };
 		DB77931E1C7BFB2800BCFC5E /* CoreDataPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB77931D1C7BFB2800BCFC5E /* CoreDataPickerTF.m */; };
+		DB7793211C7C097000BCFC5E /* UnitPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7793201C7C097000BCFC5E /* UnitPickerTF.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725521B71ED5C0078CA1F /* Main.storyboard */; };
@@ -117,6 +118,8 @@
 		DB64A6F81C744E0A00D857C6 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		DB77931C1C7BFB2800BCFC5E /* CoreDataPickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataPickerTF.h; sourceTree = "<group>"; };
 		DB77931D1C7BFB2800BCFC5E /* CoreDataPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataPickerTF.m; sourceTree = "<group>"; };
+		DB77931F1C7C097000BCFC5E /* UnitPickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitPickerTF.h; sourceTree = "<group>"; };
+		DB7793201C7C097000BCFC5E /* UnitPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitPickerTF.m; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBB7254A1B71ED5C0078CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 			children = (
 				DB77931C1C7BFB2800BCFC5E /* CoreDataPickerTF.h */,
 				DB77931D1C7BFB2800BCFC5E /* CoreDataPickerTF.m */,
+				DB77931F1C7C097000BCFC5E /* UnitPickerTF.h */,
+				DB7793201C7C097000BCFC5E /* UnitPickerTF.m */,
 			);
 			path = "Grocery Dude View";
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				7441E9351C79F3C3007FB506 /* LocationAtShopViewController.m in Sources */,
 				DB2F3CFB1C72C32E00428566 /* Unit.m in Sources */,
 				DB64A6F91C744E0A00D857C6 /* ItemViewController.m in Sources */,
+				DB7793211C7C097000BCFC5E /* UnitPickerTF.m in Sources */,
 				DB0726781C71C1B300AC8C32 /* Measurement+CoreDataProperties.m in Sources */,
 				DB2F3D241C732A2300428566 /* CoreDataTableViewController.m in Sources */,
 				DB2F3D181C7309CD00428566 /* LocationAtHome.m in Sources */,

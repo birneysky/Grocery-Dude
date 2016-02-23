@@ -21,7 +21,7 @@
 
 @end
 
-@interface CoreDataPickerTF : UITextField
+@interface CoreDataPickerTF : UITextField <UIKeyInput,UIPickerViewDelegate,UIPickerViewDataSource>
 
 /*当用户选中Picker中的某一行时，系统将向其发送消息，把用户所选的内容告诉委托*/
 @property (nonatomic,weak) id<CoreDataPickerTFDelegate> pickerDelegate;

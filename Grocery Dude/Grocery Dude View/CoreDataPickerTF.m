@@ -7,10 +7,8 @@
 //
 
 #import "CoreDataPickerTF.h"
-//#import "AppDelegate.h"
-//#import "Unit+CoreDataProperties.h"
 
-@interface CoreDataPickerTF () <UIKeyInput,UIPickerViewDelegate,UIPickerViewDataSource>
+@interface CoreDataPickerTF () 
 
 @end
 
@@ -115,32 +113,11 @@
 - (void)fetch
 {
     [NSException raise:NSInternalInconsistencyException format:@"You must override the '%@' method to provide data to the picker",NSStringFromSelector(_cmd)];
-//    CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
-//    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
-//    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-//    [request setFetchBatchSize:50];
-//    NSError* error = nil;
-//    self.pickerData = [cdh.context executeFetchRequest:request error:&error];
-//    if (error) {
-//        DebugLog(@"Error populating picker %@, %@",error,error.localizedDescription);
-//    }
-//    [self selectDefaultRow];
 }
 
 - (void)selectDefaultRow
 {
     [NSException raise:NSInternalInconsistencyException format:@"You must override the '%@' method to set the default picker row",NSStringFromSelector(_cmd)];
-//    if (self.selectObjectID && self.pickerData.count > 0) {
-//        CoreDataHelper* cdh = [(AppDelegate*)[[UIApplication sharedApplication] delegate] coreDataHelper];
-//        Unit* selectObject = [cdh.context existingObjectWithID:self.selectObjectID error:nil];
-//        [self.pickerData enumerateObjectsUsingBlock:^(Unit*  _Nonnull unit, NSUInteger idx, BOOL * _Nonnull stop) {
-//            if ([unit.name compare:selectObject.name ] == NSOrderedSame) {
-//                [self.picker selectRow:idx inComponent:0 animated:NO];
-//                [self.pickerDelegate selectedObjectID:self.selectObjectID changedForPickerTF:self];
-//                *stop = YES;
-//            }
-//        }];
-//    }
 }
 
 - (void)deviceDidRotate:(NSNotification*)notification
