@@ -38,6 +38,7 @@
 		DB7793271C7C1A2200BCFC5E /* LocationAtShopPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7793261C7C1A2200BCFC5E /* LocationAtShopPickerTF.m */; };
 		DB8DE87E1C7D80ED00D749CD /* CoreDataPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE87B1C7D80ED00D749CD /* CoreDataPickerTF.m */; };
 		DB8DE87F1C7D80ED00D749CD /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE87D1C7D80ED00D749CD /* CoreDataTableViewController.m */; };
+		DB8DE8811C7D839400D749CD /* DefaultData.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB8DE8801C7D839400D749CD /* DefaultData.plist */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725521B71ED5C0078CA1F /* Main.storyboard */; };
@@ -126,6 +127,7 @@
 		DB8DE87B1C7D80ED00D749CD /* CoreDataPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataPickerTF.m; sourceTree = "<group>"; };
 		DB8DE87C1C7D80ED00D749CD /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		DB8DE87D1C7D80ED00D749CD /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		DB8DE8801C7D839400D749CD /* DefaultData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultData.plist; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBB7254A1B71ED5C0078CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				DBB725791B7208CB0078CA1F /* Model.xcdatamodeld */,
 				DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */,
 				DB2F3CFC1C72C3AE00428566 /* Model3toModel4.xcmappingmodel */,
+				DB8DE8801C7D839400D749CD /* DefaultData.plist */,
 			);
 			path = CoreDataModel;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			files = (
 				DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */,
 				DBB725591B71ED5C0078CA1F /* LaunchScreen.xib in Resources */,
+				DB8DE8811C7D839400D749CD /* DefaultData.plist in Resources */,
 				DBB725561B71ED5C0078CA1F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
