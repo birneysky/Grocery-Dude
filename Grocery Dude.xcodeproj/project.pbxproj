@@ -40,6 +40,7 @@
 		DB8DE87F1C7D80ED00D749CD /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE87D1C7D80ED00D749CD /* CoreDataTableViewController.m */; };
 		DB8DE8831C7D85F500D749CD /* DefaultData.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB8DE8821C7D85F500D749CD /* DefaultData.xml */; };
 		DB8DE8871C7D86D700D749CD /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE8861C7D86D700D749CD /* XMLReader.m */; };
+		DB8DE88A1C7DA63100D749CD /* CoreDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE8891C7DA63100D749CD /* CoreDataImporter.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725521B71ED5C0078CA1F /* Main.storyboard */; };
@@ -131,6 +132,8 @@
 		DB8DE8821C7D85F500D749CD /* DefaultData.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DefaultData.xml; sourceTree = "<group>"; };
 		DB8DE8851C7D86D700D749CD /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		DB8DE8861C7D86D700D749CD /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		DB8DE8881C7DA63100D749CD /* CoreDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataImporter.h; sourceTree = "<group>"; };
+		DB8DE8891C7DA63100D749CD /* CoreDataImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataImporter.m; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBB7254A1B71ED5C0078CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 				DB8DE87D1C7D80ED00D749CD /* CoreDataTableViewController.m */,
 				DBB725761B7208770078CA1F /* CoreDataHelper.h */,
 				DBB725771B7208770078CA1F /* CoreDataHelper.m */,
+				DB8DE8881C7DA63100D749CD /* CoreDataImporter.h */,
+				DB8DE8891C7DA63100D749CD /* CoreDataImporter.m */,
 			);
 			path = GenericCoreDataClasses;
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 			files = (
 				7441E9351C79F3C3007FB506 /* LocationAtShopViewController.m in Sources */,
 				DB2F3CFB1C72C32E00428566 /* Unit.m in Sources */,
+				DB8DE88A1C7DA63100D749CD /* CoreDataImporter.m in Sources */,
 				DB7793241C7C19EC00BCFC5E /* LocationAtHomePickerTF.m in Sources */,
 				DB64A6F91C744E0A00D857C6 /* ItemViewController.m in Sources */,
 				DB7793211C7C097000BCFC5E /* UnitPickerTF.m in Sources */,
