@@ -9,7 +9,7 @@
 #import "CoreDataHelper.h"
 #import "MigrationViewController.h"
 
-@interface CoreDataHelper ()
+@interface CoreDataHelper () <UIAlertViewDelegate>
 
 @property (nonatomic,strong)MigrationViewController* migrationVC;
 
@@ -41,6 +41,12 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
         //让上下文环境在主线程队列中运行
         _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [_context setPersistentStoreCoordinator:_coordinator];
+        
+        _importContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [_importContext performBlockAndWait:^{
+            [_importContext setPersistentStoreCoordinator:_coordinator];
+            [_importContext setUndoManager:nil];
+        }];
     }
     
     return self;
@@ -80,6 +86,7 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
 {
     DebugLog(@"Runing %@ ",self.class);
     [self loadStore];
+    [self checkIfDefaultDataNeedsImporting];
 }
 
 #pragma mark - *** Helper ***
@@ -216,6 +223,27 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
     if (![self isDefaultDataAlreadyImportedForStoreWithURL:[self stroreURL] ofType:NSSQLiteStoreType]) {
         self.importAlertView = [[UIAlertView alloc] initWithTitle:@"Import Default Data" message:@"If you've never used Grocery Dude before then some default data might help you understand how to use it. Tap 'Import' to import default data. Tap'Cancel' to skip the import,especially if you've done this before on other devices" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import", nil];
         [self.importAlertView show];
+    }
+}
+
+- (void)importFromXML:(NSURL*)url {
+
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"SomethingChanged" object:nil];
+}
+
+#pragma mark - *** Alert View Delegate ***
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView == self.importAlertView) {
+        if (1 == buttonIndex) {
+            TRACE(@"Default Data Import Approved by User");
+            [_importContext performBlock:^{
+                
+            }];
+        }
+        else {
+            TRACE(@"Default Data Import Cancelled by User");
+        }
     }
 }
 

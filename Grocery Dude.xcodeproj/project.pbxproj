@@ -38,7 +38,8 @@
 		DB7793271C7C1A2200BCFC5E /* LocationAtShopPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7793261C7C1A2200BCFC5E /* LocationAtShopPickerTF.m */; };
 		DB8DE87E1C7D80ED00D749CD /* CoreDataPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE87B1C7D80ED00D749CD /* CoreDataPickerTF.m */; };
 		DB8DE87F1C7D80ED00D749CD /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE87D1C7D80ED00D749CD /* CoreDataTableViewController.m */; };
-		DB8DE8811C7D839400D749CD /* DefaultData.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB8DE8801C7D839400D749CD /* DefaultData.plist */; };
+		DB8DE8831C7D85F500D749CD /* DefaultData.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB8DE8821C7D85F500D749CD /* DefaultData.xml */; };
+		DB8DE8871C7D86D700D749CD /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE8861C7D86D700D749CD /* XMLReader.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
 		DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725521B71ED5C0078CA1F /* Main.storyboard */; };
@@ -127,7 +128,9 @@
 		DB8DE87B1C7D80ED00D749CD /* CoreDataPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataPickerTF.m; sourceTree = "<group>"; };
 		DB8DE87C1C7D80ED00D749CD /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		DB8DE87D1C7D80ED00D749CD /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
-		DB8DE8801C7D839400D749CD /* DefaultData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultData.plist; sourceTree = "<group>"; };
+		DB8DE8821C7D85F500D749CD /* DefaultData.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DefaultData.xml; sourceTree = "<group>"; };
+		DB8DE8851C7D86D700D749CD /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		DB8DE8861C7D86D700D749CD /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB725491B71ED5C0078CA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBB7254A1B71ED5C0078CA1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -213,6 +216,15 @@
 			path = "Grocery Dude View";
 			sourceTree = "<group>";
 		};
+		DB8DE8841C7D86D700D749CD /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DB8DE8851C7D86D700D749CD /* XMLReader.h */,
+				DB8DE8861C7D86D700D749CD /* XMLReader.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		DBB7253C1B71ED5C0078CA1F = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +247,7 @@
 		DBB725471B71ED5C0078CA1F /* Grocery Dude */ = {
 			isa = PBXGroup;
 			children = (
+				DB8DE8841C7D86D700D749CD /* Helper */,
 				DB77931B1C7BFAF900BCFC5E /* Grocery Dude View */,
 				DB2F3D211C7329BC00428566 /* Grocery Dude Table View Controller */,
 				DB0726821C71D9C200AC8C32 /* Grocery Dude View Controllers */,
@@ -280,6 +293,7 @@
 		DBB725741B72084C0078CA1F /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				DB8DE8821C7D85F500D749CD /* DefaultData.xml */,
 				DB2F3D081C7309CD00428566 /* LocationAtHome+CoreDataProperties.h */,
 				DB2F3D091C7309CD00428566 /* LocationAtHome+CoreDataProperties.m */,
 				DB2F3D0A1C7309CD00428566 /* LocationAtHome.h */,
@@ -312,7 +326,6 @@
 				DBB725791B7208CB0078CA1F /* Model.xcdatamodeld */,
 				DB0726801C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel */,
 				DB2F3CFC1C72C3AE00428566 /* Model3toModel4.xcmappingmodel */,
-				DB8DE8801C7D839400D749CD /* DefaultData.plist */,
 			);
 			path = CoreDataModel;
 			sourceTree = "<group>";
@@ -412,8 +425,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */,
+				DB8DE8831C7D85F500D749CD /* DefaultData.xml in Resources */,
 				DBB725591B71ED5C0078CA1F /* LaunchScreen.xib in Resources */,
-				DB8DE8811C7D839400D749CD /* DefaultData.plist in Resources */,
 				DBB725561B71ED5C0078CA1F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +479,7 @@
 				DB2F3D1A1C7309CD00428566 /* LocationAtShop.m in Sources */,
 				DB7793271C7C1A2200BCFC5E /* LocationAtShopPickerTF.m in Sources */,
 				DB0726811C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel in Sources */,
+				DB8DE8871C7D86D700D749CD /* XMLReader.m in Sources */,
 				DB2F3D191C7309CD00428566 /* LocationAtShop+CoreDataProperties.m in Sources */,
 				DB07267F1C71C46700AC8C32 /* Amount.m in Sources */,
 			);

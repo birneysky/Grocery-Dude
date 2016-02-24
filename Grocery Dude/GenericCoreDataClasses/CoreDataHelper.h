@@ -34,6 +34,7 @@
 托管上下文对象也可以不止有一个，有时候我们需要在后台处理任务(比方说把数据保存到磁盘或者导入数据)，这种情况可以采用多个上下文
 如果在前台上下文上面调用save：，那么界面就会有卡顿现象，尤其像数据变化较大时更是如此*/
 @property (nonatomic,readonly) NSManagedObjectContext*       context;
+@property (nonatomic,readonly) NSManagedObjectContext*       importContext;
 
 
 /*托管对象模型--数据对象，托管对象持有一份对持久化存储区里相关数据的拷贝。所有的托管对象都必须位于托管上下文里面*/
@@ -48,8 +49,6 @@
 - (BOOL)isMigrationNecessaryForStore:(NSURL*)storeUrl;
 
 - (BOOL)migrateStore:(NSURL*)sourceStore;
-
-- (void)checkIfDefaultDataNeedsImporting;
 
 - (void)setupCoreData;
 
