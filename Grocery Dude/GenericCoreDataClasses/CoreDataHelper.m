@@ -9,6 +9,7 @@
 #import "CoreDataHelper.h"
 #import "MigrationViewController.h"
 #import "XMLReader.h"
+#import "CoreDataImporter.h"
 
 @interface CoreDataHelper () <UIAlertViewDelegate>
 
@@ -227,10 +228,64 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
     }
 }
 
-- (void)importFromXML:(NSURL*)url {
-
+- (NSDictionary*)selectedUniqueAttributes
+{
+    NSMutableArray *entities   = [NSMutableArray new];
+    NSMutableArray *attributes = [NSMutableArray new];
     
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"SomethingChanged" object:nil];
+    // Select an attribute in each entity for uniqueness
+    [entities addObject:@"Item"];[attributes addObject:@"name"];
+    [entities addObject:@"Unit"];[attributes addObject:@"name"];
+    [entities addObject:@"LocationAtHome"];[attributes addObject:@"storedin"];
+    [entities addObject:@"LocationAtShop"];[attributes addObject:@"aisle"];
+    
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:attributes
+                                                           forKeys:entities];
+    return dictionary;
+
+}
+
+- (void)importFromXML:(NSURL*)url {
+    NSError* error = nil;
+    NSDictionary* defaultDataDict = [XMLReader dictionaryForContentsOfURL:url error:&error];
+    NSArray* items = [[defaultDataDict objectForKey:@"items"] objectForKey:@"item"];
+    for (NSDictionary* attributeDict in items) {
+        CoreDataImporter* importer = [[CoreDataImporter alloc] initWithUniqueAttributes:[self selectedUniqueAttributes]];
+        NSManagedObject* item = [importer insertBasicObjectInTargetEntity:@"Item"
+                                                    targetEntityAttribute:@"name"
+                                                       sourceXMLAttribute:@"name"
+                                                            attributeDict:attributeDict
+                                                                  context:_importContext];
+        NSManagedObject* unit = [importer insertBasicObjectInTargetEntity:@"Unit"
+                                                    targetEntityAttribute:@"name"
+                                                       sourceXMLAttribute:@"unit"
+                                                            attributeDict:attributeDict
+                                                                  context:_importContext];
+        NSManagedObject* locationAtHome = [importer insertBasicObjectInTargetEntity:@"LocationAtHome"
+                                                              targetEntityAttribute:@"storedin"
+                                                                 sourceXMLAttribute:@"locationathome"
+                                                                      attributeDict:attributeDict
+                                                                            context:_importContext];
+        NSManagedObject* locationAtShop = [importer insertBasicObjectInTargetEntity:@"LocationAtShop"
+                                                              targetEntityAttribute:@"aisle"
+                                                                 sourceXMLAttribute:@"locationatshop"
+                                                                      attributeDict:attributeDict
+                                                                            context:_importContext];
+        [item setValue:@(YES) forKeyPath:@"listed"];
+        [item setValue:unit forKeyPath:@"unit"];
+        [item setValue:locationAtHome forKeyPath:@"locationAtHome"];
+        [item setValue:locationAtShop forKeyPath:@"locationAtShop"];
+        
+        [CoreDataImporter saveContext:_importContext];
+        
+        [_importContext refreshObject:item mergeChanges:NO];
+        [_importContext refreshObject:unit mergeChanges:NO];
+        [_importContext refreshObject:locationAtHome mergeChanges:NO];
+        [_importContext refreshObject:locationAtShop mergeChanges:NO];
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"SomethingChanged" object:nil];
+    }
+    
 }
 
 #pragma mark - *** Alert View Delegate ***
@@ -240,7 +295,8 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
         if (1 == buttonIndex) {
             TRACE(@"Default Data Import Approved by User");
             [_importContext performBlock:^{
-                
+                NSURL* url = [[NSBundle mainBundle] URLForResource:@"DefaultData" withExtension:@"xml"];
+                [self importFromXML:url];
             }];
         }
         else {

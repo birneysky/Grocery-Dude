@@ -77,7 +77,7 @@
     NSArray* attributes = [NSArray arrayWithObject:targetEntityAttribute];
     NSArray* values = [NSArray arrayWithObject:[attributeDict valueForKey:sourceXMLAttribute]];
     
-    NSDictionary* attributeValues = [NSDictionary dictionaryWithObject:values forKey:attributes];
+    NSDictionary* attributeValues =[NSDictionary dictionaryWithObjects:values forKeys:attributes]; //[NSDictionary dictionaryWithObject:values forKey:attributes];
     
     return [self insertUniqueObjectInTargetEntity:entity uniqueAttributeValue:[attributeDict valueForKey:sourceXMLAttribute] attributeValues:attributeValues inContext:context];
 }
