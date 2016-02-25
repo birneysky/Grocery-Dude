@@ -32,6 +32,7 @@
 		DB2F3D1D1C7309CD00428566 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D151C7309CD00428566 /* Location.m */; };
 		DB2F3D271C732A5500428566 /* PrepareTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D261C732A5500428566 /* PrepareTableViewController.m */; };
 		DB52531A1C7EAA380024D242 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5253191C7EAA380024D242 /* XMLReader.m */; };
+		DB52531C1C7ED02F0024D242 /* TestData.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB52531B1C7ED02F0024D242 /* TestData.xml */; };
 		DB64A6F61C7425D000D857C6 /* ShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB64A6F51C7425D000D857C6 /* ShopTableViewController.m */; };
 		DB64A6F91C744E0A00D857C6 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB64A6F81C744E0A00D857C6 /* ItemViewController.m */; };
 		DB7793211C7C097000BCFC5E /* UnitPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7793201C7C097000BCFC5E /* UnitPickerTF.m */; };
@@ -117,6 +118,7 @@
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		DB5253181C7EAA380024D242 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		DB5253191C7EAA380024D242 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		DB52531B1C7ED02F0024D242 /* TestData.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestData.xml; sourceTree = "<group>"; };
 		DB64A6F41C7425D000D857C6 /* ShopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewController.h; sourceTree = "<group>"; };
 		DB64A6F51C7425D000D857C6 /* ShopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewController.m; sourceTree = "<group>"; };
 		DB64A6F71C744E0A00D857C6 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 		DBB725741B72084C0078CA1F /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				DB52531B1C7ED02F0024D242 /* TestData.xml */,
 				DB8DE8821C7D85F500D749CD /* DefaultData.xml */,
 				DB2F3D081C7309CD00428566 /* LocationAtHome+CoreDataProperties.h */,
 				DB2F3D091C7309CD00428566 /* LocationAtHome+CoreDataProperties.m */,
@@ -432,6 +435,7 @@
 				DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */,
 				DB8DE8831C7D85F500D749CD /* DefaultData.xml in Resources */,
 				DBB725591B71ED5C0078CA1F /* LaunchScreen.xib in Resources */,
+				DB52531C1C7ED02F0024D242 /* TestData.xml in Resources */,
 				DBB725561B71ED5C0078CA1F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

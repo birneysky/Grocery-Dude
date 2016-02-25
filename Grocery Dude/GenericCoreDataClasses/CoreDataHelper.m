@@ -234,10 +234,17 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
     NSMutableArray *attributes = [NSMutableArray new];
     
     // Select an attribute in each entity for uniqueness
-    [entities addObject:@"Item"];[attributes addObject:@"name"];
-    [entities addObject:@"Unit"];[attributes addObject:@"name"];
-    [entities addObject:@"LocationAtHome"];[attributes addObject:@"storedin"];
-    [entities addObject:@"LocationAtShop"];[attributes addObject:@"aisle"];
+    [entities addObject:@"Item"];
+    [attributes addObject:@"name"];
+    
+    [entities addObject:@"Unit"];
+    [attributes addObject:@"name"];
+    
+    [entities addObject:@"LocationAtHome"];
+    [attributes addObject:@"storedin"];
+    
+    [entities addObject:@"LocationAtShop"];
+    [attributes addObject:@"aisle"];
     
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:attributes
                                                            forKeys:entities];
@@ -271,6 +278,8 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
                                                                  sourceXMLAttribute:@"locationatshop"
                                                                       attributeDict:attributeDict
                                                                             context:_importContext];
+        NSNumber* quantity = [NSNumber numberWithFloat:[[attributeDict objectForKey:@"quantity"] floatValue] ];
+        [item setValue:quantity forKeyPath:@"quantity"];
         [item setValue:@(YES) forKeyPath:@"listed"];
         [item setValue:unit forKeyPath:@"unit"];
         [item setValue:locationAtHome forKeyPath:@"locationAtHome"];
@@ -295,7 +304,7 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
         if (1 == buttonIndex) {
             TRACE(@"Default Data Import Approved by User");
             [_importContext performBlock:^{
-                NSURL* url = [[NSBundle mainBundle] URLForResource:@"DefaultData" withExtension:@"xml"];
+                NSURL* url = [[NSBundle mainBundle] URLForResource:@"TestData" withExtension:@"xml"];
                 [self importFromXML:url];
             }];
         }
