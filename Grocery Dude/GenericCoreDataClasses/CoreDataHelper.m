@@ -8,6 +8,7 @@
 
 #import "CoreDataHelper.h"
 #import "MigrationViewController.h"
+#import "XMLReader.h"
 
 @interface CoreDataHelper () <UIAlertViewDelegate>
 
@@ -228,6 +229,7 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
 
 - (void)importFromXML:(NSURL*)url {
 
+    
     [[NSNotificationCenter defaultCenter]postNotificationName:@"SomethingChanged" object:nil];
 }
 

@@ -31,6 +31,7 @@
 		DB2F3D1C1C7309CD00428566 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D131C7309CD00428566 /* Location+CoreDataProperties.m */; };
 		DB2F3D1D1C7309CD00428566 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D151C7309CD00428566 /* Location.m */; };
 		DB2F3D271C732A5500428566 /* PrepareTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D261C732A5500428566 /* PrepareTableViewController.m */; };
+		DB52531A1C7EAA380024D242 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5253191C7EAA380024D242 /* XMLReader.m */; };
 		DB64A6F61C7425D000D857C6 /* ShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB64A6F51C7425D000D857C6 /* ShopTableViewController.m */; };
 		DB64A6F91C744E0A00D857C6 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB64A6F81C744E0A00D857C6 /* ItemViewController.m */; };
 		DB7793211C7C097000BCFC5E /* UnitPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7793201C7C097000BCFC5E /* UnitPickerTF.m */; };
@@ -39,7 +40,6 @@
 		DB8DE87E1C7D80ED00D749CD /* CoreDataPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE87B1C7D80ED00D749CD /* CoreDataPickerTF.m */; };
 		DB8DE87F1C7D80ED00D749CD /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE87D1C7D80ED00D749CD /* CoreDataTableViewController.m */; };
 		DB8DE8831C7D85F500D749CD /* DefaultData.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB8DE8821C7D85F500D749CD /* DefaultData.xml */; };
-		DB8DE8871C7D86D700D749CD /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE8861C7D86D700D749CD /* XMLReader.m */; };
 		DB8DE88A1C7DA63100D749CD /* CoreDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8DE8891C7DA63100D749CD /* CoreDataImporter.m */; };
 		DBB7254B1B71ED5C0078CA1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254A1B71ED5C0078CA1F /* main.m */; };
 		DBB7254E1B71ED5C0078CA1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB7254D1B71ED5C0078CA1F /* AppDelegate.m */; };
@@ -115,6 +115,8 @@
 		DB2F3D251C732A5500428566 /* PrepareTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrepareTableViewController.h; sourceTree = "<group>"; };
 		DB2F3D261C732A5500428566 /* PrepareTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrepareTableViewController.m; sourceTree = "<group>"; };
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		DB5253181C7EAA380024D242 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		DB5253191C7EAA380024D242 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		DB64A6F41C7425D000D857C6 /* ShopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewController.h; sourceTree = "<group>"; };
 		DB64A6F51C7425D000D857C6 /* ShopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewController.m; sourceTree = "<group>"; };
 		DB64A6F71C744E0A00D857C6 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
@@ -130,8 +132,6 @@
 		DB8DE87C1C7D80ED00D749CD /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		DB8DE87D1C7D80ED00D749CD /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		DB8DE8821C7D85F500D749CD /* DefaultData.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DefaultData.xml; sourceTree = "<group>"; };
-		DB8DE8851C7D86D700D749CD /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
-		DB8DE8861C7D86D700D749CD /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		DB8DE8881C7DA63100D749CD /* CoreDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataImporter.h; sourceTree = "<group>"; };
 		DB8DE8891C7DA63100D749CD /* CoreDataImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataImporter.m; sourceTree = "<group>"; };
 		DBB725451B71ED5C0078CA1F /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +206,15 @@
 			path = "Grocery Dude Table View Controller";
 			sourceTree = "<group>";
 		};
+		DB5253171C7EAA380024D242 /* XMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				DB5253181C7EAA380024D242 /* XMLReader.h */,
+				DB5253191C7EAA380024D242 /* XMLReader.m */,
+			);
+			path = XMLParser;
+			sourceTree = "<group>";
+		};
 		DB77931B1C7BFAF900BCFC5E /* Grocery Dude View */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,15 +226,6 @@
 				DB7793261C7C1A2200BCFC5E /* LocationAtShopPickerTF.m */,
 			);
 			path = "Grocery Dude View";
-			sourceTree = "<group>";
-		};
-		DB8DE8841C7D86D700D749CD /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				DB8DE8851C7D86D700D749CD /* XMLReader.h */,
-				DB8DE8861C7D86D700D749CD /* XMLReader.m */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		DBB7253C1B71ED5C0078CA1F = {
@@ -250,7 +250,7 @@
 		DBB725471B71ED5C0078CA1F /* Grocery Dude */ = {
 			isa = PBXGroup;
 			children = (
-				DB8DE8841C7D86D700D749CD /* Helper */,
+				DB5253171C7EAA380024D242 /* XMLParser */,
 				DB77931B1C7BFAF900BCFC5E /* Grocery Dude View */,
 				DB2F3D211C7329BC00428566 /* Grocery Dude Table View Controller */,
 				DB0726821C71D9C200AC8C32 /* Grocery Dude View Controllers */,
@@ -484,8 +484,8 @@
 				DB2F3D1C1C7309CD00428566 /* Location+CoreDataProperties.m in Sources */,
 				DB2F3D1A1C7309CD00428566 /* LocationAtShop.m in Sources */,
 				DB7793271C7C1A2200BCFC5E /* LocationAtShopPickerTF.m in Sources */,
+				DB52531A1C7EAA380024D242 /* XMLReader.m in Sources */,
 				DB0726811C71CAF000AC8C32 /* Model2toModel3.xcmappingmodel in Sources */,
-				DB8DE8871C7D86D700D749CD /* XMLReader.m in Sources */,
 				DB2F3D191C7309CD00428566 /* LocationAtShop+CoreDataProperties.m in Sources */,
 				DB07267F1C71C46700AC8C32 /* Amount.m in Sources */,
 			);
