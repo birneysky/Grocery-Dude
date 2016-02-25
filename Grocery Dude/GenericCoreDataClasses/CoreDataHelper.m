@@ -200,6 +200,13 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
     return sucess;
 }
 
+- (void)setDefaultDataAsImportedForStore:(NSPersistentStore*)aStore
+{
+    NSMutableDictionary* dictionary = [NSMutableDictionary dictionaryWithDictionary:[[aStore metadata] copy]];
+    [dictionary setValue:@(YES) forKey:@"DefaultDataImported"];
+    [self.coordinator setMetadata:dictionary forPersistentStore:aStore];
+}
+
 - (BOOL)isDefaultDataAlreadyImportedForStoreWithURL:(NSURL*)url ofType:(NSString*)type
 {
     NSError* error;
@@ -311,6 +318,7 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
         else {
             TRACE(@"Default Data Import Cancelled by User");
         }
+        [self setDefaultDataAsImportedForStore:_store];
     }
 }
 
