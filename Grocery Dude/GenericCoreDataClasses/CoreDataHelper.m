@@ -25,7 +25,7 @@
 
 #pragma mark - *** FILES Name ***
 NSString* storeFileName = @"Grocery-Dude.sqlite";
-
+NSString* sourceStoreFileName = @"DefaultData.sqlite";
 #pragma mark - *** SETUP ***
 - (id)init
 {
@@ -48,6 +48,14 @@ NSString* storeFileName = @"Grocery-Dude.sqlite";
         [_importContext performBlockAndWait:^{
             [_importContext setPersistentStoreCoordinator:_coordinator];
             [_importContext setUndoManager:nil];
+        }];
+        
+        
+        _sourceCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
+        _sourceContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [_sourceContext performBlockAndWait:^{
+            [_sourceContext setPersistentStoreCoordinator:_sourceCoordinator];
+            [_sourceContext setUndoManager:nil];
         }];
     }
     

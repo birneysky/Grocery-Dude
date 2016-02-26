@@ -31,6 +31,7 @@
 		DB2F3D1C1C7309CD00428566 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D131C7309CD00428566 /* Location+CoreDataProperties.m */; };
 		DB2F3D1D1C7309CD00428566 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D151C7309CD00428566 /* Location.m */; };
 		DB2F3D271C732A5500428566 /* PrepareTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3D261C732A5500428566 /* PrepareTableViewController.m */; };
+		DB4905161C8004AB005BA26A /* DefaultData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = DB4905151C8004AB005BA26A /* DefaultData.sqlite */; };
 		DB52531A1C7EAA380024D242 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5253191C7EAA380024D242 /* XMLReader.m */; };
 		DB52531C1C7ED02F0024D242 /* TestData.xml in Resources */ = {isa = PBXBuildFile; fileRef = DB52531B1C7ED02F0024D242 /* TestData.xml */; };
 		DB64A6F61C7425D000D857C6 /* ShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB64A6F51C7425D000D857C6 /* ShopTableViewController.m */; };
@@ -115,6 +116,7 @@
 		DB2F3D151C7309CD00428566 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		DB2F3D251C732A5500428566 /* PrepareTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrepareTableViewController.h; sourceTree = "<group>"; };
 		DB2F3D261C732A5500428566 /* PrepareTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrepareTableViewController.m; sourceTree = "<group>"; };
+		DB4905151C8004AB005BA26A /* DefaultData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DefaultData.sqlite; sourceTree = "<group>"; };
 		DB5153241B79D16C009BC23D /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		DB5253181C7EAA380024D242 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		DB5253191C7EAA380024D242 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 		DBB725741B72084C0078CA1F /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				DB4905151C8004AB005BA26A /* DefaultData.sqlite */,
 				DB52531B1C7ED02F0024D242 /* TestData.xml */,
 				DB8DE8821C7D85F500D749CD /* DefaultData.xml */,
 				DB2F3D081C7309CD00428566 /* LocationAtHome+CoreDataProperties.h */,
@@ -433,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBB725541B71ED5C0078CA1F /* Main.storyboard in Resources */,
+				DB4905161C8004AB005BA26A /* DefaultData.sqlite in Resources */,
 				DB8DE8831C7D85F500D749CD /* DefaultData.xml in Resources */,
 				DBB725591B71ED5C0078CA1F /* LaunchScreen.xib in Resources */,
 				DB52531C1C7ED02F0024D242 /* TestData.xml in Resources */,
