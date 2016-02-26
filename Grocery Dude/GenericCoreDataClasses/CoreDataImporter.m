@@ -186,4 +186,48 @@
  此外，由于整个过程在后台执行，所以不会影响用户界面。
  */
 
+- (void)establishOneToOneRelationship:(NSString*)relationshipName
+                           fromObject:(NSManagedObject*)object
+                             toObject:(NSManagedObject*)relatedObject
+{
+    if (!relationshipName || !object || !relatedObject) {
+        DebugLog(@"SKipped establishing  One-To-One relationship '%@' between '%@' and '%@'" ,relationshipName,[self objectInfo:object],[self objectInfo:relatedObject]);
+        NSLog(@"Dude to missing Info!");
+        return;
+    }
+    
+    NSManagedObject* existingRelatedObject = [object valueForKey:relationshipName];
+    if (existingRelatedObject) {
+        return;
+    }
+    
+    NSDictionary* relationships = [object.entity relationshipsByName];
+    NSRelationshipDescription* relationship = [relationships objectForKey:relationshipName];
+    if (![relatedObject.entity isEqual:relationship.destinationEntity]) {
+        DebugLog(@"%@ is the of wrong entity type to relate to %@",[self objectInfo:object],[self objectInfo:relatedObject]);
+        return;
+    }
+    
+    //建立关系
+    
+    [object setValue:relatedObject forKey:relationshipName];
+    DebugLog(@"ESTABLISHED %@ relationship from %@ to %@",relationshipName,[self objectInfo:object],[self objectInfo:relatedObject]);
+    [CoreDataImporter saveContext:relatedObject.managedObjectContext];
+    [CoreDataImporter saveContext:object.managedObjectContext];
+    [object.managedObjectContext refreshObject:object mergeChanges:NO];
+    [relatedObject.managedObjectContext refreshObject:relatedObject mergeChanges:NO];
+}
+
+/*该方法负责创建对象的一对多关系。
+ 传给该方法的对象应该位于深拷贝操作的目标上下文中。
+ 传给该方法的NSMutableSet里面应该包含源上下文中的对象。
+ 在建立新关系的过程中，此方法会根据需要，在目标上下文里面创建缺失的对象*/
+
+- (void)establishOnToManyRelationship:(NSString*)relationshipName
+                           fromObject:(NSManagedObject*)object
+                        withSourceSet:(NSManagedObject*)sourceSet
+{
+    
+}
+
 @end
