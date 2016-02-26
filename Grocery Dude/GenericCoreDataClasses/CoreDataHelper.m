@@ -92,6 +92,27 @@ NSString* sourceStoreFileName = @"DefaultData.sqlite";
     
 }
 
+- (void)loadSourceStore
+{
+    if (_sourceStore) {
+        return;
+    }
+    
+    NSError* error;
+    _sourceStore = [_sourceCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                    configuration:nil
+                                                              URL:[self sourceStoreRUL]
+                                                          options:@{NSReadOnlyPersistentStoreOption:@YES}
+                                                            error:&error];
+    if (!_sourceStore) {
+        DebugLog(@"Falied to add source store Error: %@",error);
+        abort();
+    }
+    else{
+        DebugLog(@"Sucessfully added source store: %@ ",_sourceStore);
+    }
+}
+
 - (void)setupCoreData
 {
     DebugLog(@"Runing %@ ",self.class);
@@ -420,6 +441,11 @@ NSString* sourceStoreFileName = @"DefaultData.sqlite";
     DebugLog(@"Runing %@ ",self.class);
     
     return [[self applicationStoresDirectory] URLByAppendingPathComponent:storeFileName];
+}
+
+- (NSURL*)sourceStoreRUL
+{
+    return [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[sourceStoreFileName stringByDeletingPathExtension] ofType:[sourceStoreFileName pathExtension]]];
 }
 
 #pragma mark - *** SAVING ***
