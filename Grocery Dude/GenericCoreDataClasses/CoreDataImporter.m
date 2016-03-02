@@ -221,13 +221,47 @@
 /*该方法负责创建对象的一对多关系。
  传给该方法的对象应该位于深拷贝操作的目标上下文中。
  传给该方法的NSMutableSet里面应该包含源上下文中的对象。
- 在建立新关系的过程中，此方法会根据需要，在目标上下文里面创建缺失的对象*/
+ 在建立新关系的过程中，此方法会根据需要，在目标上下文里面创建缺失的对象
+ 
+ 创建一对多的关系的办法是：把sourceSet中对象添加到另一个对象的NSMutableSet里面，
+ 而那个NSMutableSet正是用来表示这一关系的。我们通过对象的键值来访问NSMutableSet。
+ 关系名称是键，NSMutableSet是值。由于NSMutableSet只能包含互不相同的对象，
+ 所以不必担心无意间为某个对象创建了重复的关系。
+ */
 
 - (void)establishOnToManyRelationship:(NSString*)relationshipName
                            fromObject:(NSManagedObject*)object
-                        withSourceSet:(NSManagedObject*)sourceSet
+                        withSourceSet:(NSMutableSet*)sourceSet
 {
+    if (!object || !sourceSet || !relationshipName) {
+        DebugLog(@"SKipped establishing a To-Many relationship from %@",[self objectInfo:object]);
+        TRACE(@"Due to missing info!");
+        return;
+    }
+    
+    NSMutableSet* copiedSet = [object mutableSetValueForKeyPath:relationshipName];
+    
+    for (NSManagedObject* relatedObject in sourceSet) {
+        NSManagedObject* copiedRelatedObject = [self copyUniqueObject:relatedObject toContext:object.managedObjectContext];
+        if (copiedRelatedObject) {
+            [copiedSet addObject:copiedRelatedObject];
+            DebugLog(@"A Copy of %@ is now related via To-Many '%@' relationship to %@",[self objectInfo:object],relationshipName,[self objectInfo:copiedRelatedObject]);
+        }
+    }
+    
+    [CoreDataImporter saveContext:object.managedObjectContext];
+    [object.managedObjectContext refreshObject:object mergeChanges:NO];
     
 }
+
+/*
+ 建立有序的一对多关系
+ 传给该方法的NSMutableOrderedSet应该包含在应该包含源上下文里的对象。
+ 在建立新关系的过程中，该方法会根据需要，在目标上下文中创建缺失的对象。
+ 有序的一对多关系的建立方式为：把sourceSet里的对象添加到另一个对象的NSMutableOrderedSet里面，
+ 而那个NSMutableOrderedSet正是用来表示这一关系的。通过键值对来访问NSMutableOrderedSet。键是“关系”的名称
+ 值是NSMutableOrderedSet。目标上下文中的那个NSMutableOrderedSet其对象的顺序要和上下文中对应的NSMutableOrderedSet相符。
+ 根据在sourceSet中所找到的对象来创建等价对象，并依次将其添加到目标对象的NSMutableOrderedSet里，以保证他们的顺序与sourceSet相符。
+ */
 
 @end
