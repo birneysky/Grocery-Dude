@@ -229,7 +229,7 @@
  所以不必担心无意间为某个对象创建了重复的关系。
  */
 
-- (void)establishOnToManyRelationship:(NSString*)relationshipName
+- (void)establishToManyRelationship:(NSString*)relationshipName
                            fromObject:(NSManagedObject*)object
                         withSourceSet:(NSMutableSet*)sourceSet
 {
@@ -263,5 +263,72 @@
  值是NSMutableOrderedSet。目标上下文中的那个NSMutableOrderedSet其对象的顺序要和上下文中对应的NSMutableOrderedSet相符。
  根据在sourceSet中所找到的对象来创建等价对象，并依次将其添加到目标对象的NSMutableOrderedSet里，以保证他们的顺序与sourceSet相符。
  */
+
+- (void)establishOrderedToManyRelationship:(NSString*)relationshipName
+                                fromObject:(NSManagedObject*)object
+                             withSourceSet:(NSMutableOrderedSet*)sourceSet {
+    if (!object || !sourceSet || !relationshipName) {
+        DebugLog(@"SKipped establishment of an Ordered To-Many relationship from %@",[self objectInfo:object]);
+        TRACE(@"Due to missing Info");
+        return;
+    }
+    
+    NSMutableOrderedSet* copiedSet = [object mutableOrderedSetValueForKey:relationshipName];
+    
+    for (NSManagedObject* relatedObject in sourceSet) {
+        NSManagedObject* copiedRelatedObject = [self copyUniqueObject:relatedObject toContext:object.managedObjectContext];
+        if (copiedRelatedObject) {
+            [copiedSet addObject:copiedRelatedObject];
+            DebugLog(@"A Copy of %@ is related via Order To Many '%@' relationship to %@",[self objectInfo:object],relationshipName,[self objectInfo:copiedRelatedObject]);
+        }
+    }
+    
+    [CoreDataImporter saveContext:object.managedObjectContext];
+    [object.managedObjectContext refreshObject:object mergeChanges:NO];
+}
+
+/*
+ 该方法负责把源上下文里某个对象的全部关系都拷贝到目标上下文里的等价对象中。上面的方法都是为了编写这个方法而实现的
+ 在确认了开发者所传入的sourceObject以及targetContext参数都不是nil之后
+ 该方法首先判断目标上下文中有没有与sourceObject相等价的对象。这个等价的对象称为copiedObject，我们用早前实现好的copyUniqueObject方法来创建它。
+ 假如在尝试了copyUniqueObject方法之后copiedObject依然为nil，那么该方法返回。
+ 在拷贝关系的时候，该方法首先用[sourceObject.entity relationshipsByName]查出源对象所具备的各种关系，
+ 然后在获取到的NSDictionary里面遍历，找出源对象有效的关系。
+ 假如源对象确实具备某条关系，那我们就在copiedObject上面重新创建与之等价的关系。
+ 在拷贝某条关系之前，还得确定其类型。假如是一对多关系或者有序有序的一对多关系，那么就把适当的sourceSet传给establishToManyRelationship或者establishOrderedToManyRelationship方法，以拷贝此关系。假如是一对一关系，那就先把相关联的对象拷贝到目标上下文里，然后再调用相应的方法来建立关系。
+ */
+- (void)copyRelationshipsFromObject:(NSManagedObject*)sourceObject
+                          toContext:(NSManagedObjectContext*)targetContext
+{
+    if (!sourceObject || !targetContext) {
+        DebugLog(@"Failed to copyRelationships from '%@' to context '%@'",[self objectInfo:sourceObject],targetContext);
+        return;
+    }
+    
+    NSManagedObject* copiedObject = [self copyUniqueObject:sourceObject toContext:targetContext];
+    if (!copiedObject) {
+        return;
+    }
+    
+    NSDictionary* relationships = [sourceObject.entity relationshipsByName];
+    for (NSString* relationshipName in relationships) {
+        NSRelationshipDescription* relationship = [relationships objectForKey:relationshipName];
+        if ([sourceObject valueForKey:relationshipName]) {
+            if (relationship.isToMany && relationship.isOrdered) {
+                NSMutableOrderedSet* sourceSet = [sourceObject mutableOrderedSetValueForKey:relationshipName];
+                [self establishOrderedToManyRelationship:relationshipName fromObject:copiedObject withSourceSet:sourceSet];
+            }
+            else if (relationship.isToMany && !relationship.ordered){
+                NSMutableSet* sourceSet = [sourceObject mutableSetValueForKey:relationshipName];
+                [self establishToManyRelationship:relationshipName fromObject:copiedObject withSourceSet:sourceSet];
+            }
+            else{
+                NSManagedObject* relatedSourceObject = [sourceObject valueForKey:relationshipName];
+                NSManagedObject* relatedCopiedObject = [self copyUniqueObject:relatedSourceObject toContext:targetContext];
+                [self establishOneToOneRelationship:relationshipName fromObject:copiedObject toObject:relatedCopiedObject];
+            }
+        }
+    }
+}
 
 @end
