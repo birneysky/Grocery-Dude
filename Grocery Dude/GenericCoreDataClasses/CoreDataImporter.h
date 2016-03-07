@@ -35,4 +35,8 @@
  鉴于整个流程比较复杂，所以将其分解成几个部分。
  */
 
+- (void)deepCopyEntities:(NSArray*)entities
+             fromContext:(NSManagedObjectContext*)sourceContext
+               toContext:(NSManagedObjectContext*)targetContext;
+
 @end

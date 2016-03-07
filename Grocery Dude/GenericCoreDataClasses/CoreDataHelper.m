@@ -17,6 +17,8 @@
 
 @property (nonatomic,strong) UIAlertView* importAlertView;
 
+@property (nonatomic,strong) NSTimer* importTimer;
+
 @end
 
 @implementation CoreDataHelper
@@ -333,16 +335,38 @@ NSString* sourceStoreFileName = @"DefaultData.sqlite";
     
 }
 
+- (void)deepCopyFromPersistentStore:(NSURL*)url
+{
+    _importTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
+                                                    target:self
+                                                  selector:@selector(sometingChanged)
+                                                  userInfo:nil
+                                                   repeats:YES];
+    [_sourceContext performBlock:^{
+        TRACE(@"*** Started Deep Copy From Default Data Persistent Store ***");
+        NSArray* entitiesToCopy = [NSArray arrayWithObjects:@"LocationAtHome",@"LocationAtShop",@"Unit",@"Item", nil];
+        CoreDataImporter* importer = [[CoreDataImporter alloc] initWithUniqueAttributes:[self selectedUniqueAttributes]];
+        [importer deepCopyEntities:entitiesToCopy fromContext:_sourceContext toContext:_importContext];
+        [_context performBlock:^{
+            [self sometingChanged];
+        }];
+        TRACE(@"*** Finished Deep Copy From Default Data Persistent Store ***");
+    }];
+}
+
 #pragma mark - *** Alert View Delegate ***
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView == self.importAlertView) {
         if (1 == buttonIndex) {
             TRACE(@"Default Data Import Approved by User");
-            [_importContext performBlock:^{
+            /*[_importContext performBlock:^{
                 NSURL* url = [[NSBundle mainBundle] URLForResource:@"TestData" withExtension:@"xml"];
                 [self importFromXML:url];
-            }];
+            }];*/
+            
+            [self loadSourceStore];
+            [self deepCopyFromPersistentStore:[self sourceStoreRUL]];
         }
         else {
             TRACE(@"Default Data Import Cancelled by User");
@@ -509,4 +533,8 @@ NSString* sourceStoreFileName = @"DefaultData.sqlite";
     }
 }
 
+#pragma mark - *** UnderLying data change notification ***
+- (void)sometingChanged{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:nil];
+}
 @end
