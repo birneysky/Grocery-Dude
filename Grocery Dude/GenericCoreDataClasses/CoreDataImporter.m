@@ -331,4 +331,17 @@
     }
 }
 
+/*对实体进行深拷贝。
+ 
+ */
+
+- (void)deepCopyEntities:(NSArray*)entities
+             fromContext:(NSManagedObjectContext*)sourceContext
+               toContext:(NSManagedObjectContext*)targetContext
+{
+    for (NSString* entity in entities) {
+        //DebugLog(@"Copying %@")
+    }
+}
+
 @end
