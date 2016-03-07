@@ -332,7 +332,24 @@
 }
 
 /*对实体进行深拷贝。
+ deepCopyEntities方法，根据给定的实体，把全部对象从一个上下文拷贝到另一个上下文之中。
+ 实现该方法的具体办法有很多种，而用户对这些办法体验也各有不同。在网上搜索core data programming guide:efficently importing data,
+ 应该会找到一篇由apple所写的编程指南，其中讨论了导入数据所用的技术。那边文章里面说，应该尽量先把所有的对象都一次性拷贝过去，然后再修正他们之间的“关系”。
+ 有些应用程序能够使用这个办法，另外一些程序也不行。导入数据会比较耗时，假如导入时没有建立关系，哪怕只有几秒钟的时间，用户也可能会认为程序出了bug。
+ 为了应对这一问题，我们有下面几种解决办法（用户可以根据应用程序的性质来决定具体方案）：
+    1 禁止用户使用应用程序的部分功能或者全部功能。
+        在导入数据时，可以通过MBProgressHUD 等方式来显示导入进度。如果导入时间过长，用户可能会着急。
+        所以，对于某些应用程序来说，在导入数据时也许并不能把全部功能都禁用，而是只能禁用其中一部分功能，
+        等数据导入好之后，在将其重新启用
+    2 先导入所有对象，然后在建立关系。
+        如果采用这个办法，那么用户可能会看到尚未完全导入的数据，这些数据之间的“关系”可能刚刚建立，也可能还没有建立起来。
+        该办法是否可行，要根据数据模型来定。
+    3 把对象和关系一并导入。
+        虽说这个办法的效率不如另外两种高，但是整个深拷贝的过程可以放在后台运行，这样的话，对用户造成的影响就非常小了，
+        甚至根本不会影响用户。这种办法所消耗的设备电量会多一些，但却能使用户在导入数据的过程中继续操作应用程序。
  
+ CoreDataImporter采用的办法是把对象和关系一并导入。每个对象的深拷贝操作都包裹在autorelease池中执行，
+ 这样的话，系统在数据导入过程中需要定期释放内存
  */
 
 - (void)deepCopyEntities:(NSArray*)entities
@@ -340,7 +357,14 @@
                toContext:(NSManagedObjectContext*)targetContext
 {
     for (NSString* entity in entities) {
-        //DebugLog(@"Copying %@")
+        DebugLog(@"Copying %@ objects to target context...",entities);
+        NSArray* sourceObjects = [self arrayForEntity:entity inContext:sourceContext withPredicate:nil];
+        for (NSManagedObject* sourceObject in sourceObjects) {
+            @autoreleasepool {
+                [self copyUniqueObject:sourceObject toContext:targetContext];
+                [self copyRelationshipsFromObject:sourceObject toContext:targetContext];
+            }
+        }
     }
 }
 
