@@ -348,6 +348,7 @@ NSString* sourceStoreFileName = @"DefaultData.sqlite";
         CoreDataImporter* importer = [[CoreDataImporter alloc] initWithUniqueAttributes:[self selectedUniqueAttributes]];
         [importer deepCopyEntities:entitiesToCopy fromContext:_sourceContext toContext:_importContext];
         [_context performBlock:^{
+            [_importTimer invalidate];
             [self sometingChanged];
         }];
         TRACE(@"*** Finished Deep Copy From Default Data Persistent Store ***");
