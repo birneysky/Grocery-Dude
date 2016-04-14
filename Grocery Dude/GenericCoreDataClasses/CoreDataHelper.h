@@ -45,6 +45,17 @@
 @property (nonatomic,readonly) NSPersistentStoreCoordinator* coordinator;
 @property (nonatomic,readonly) NSPersistentStore*            store;
 
+
+/*************************/
+
+@property (nonatomic,readonly) NSManagedObjectContext* sourceContext;
+
+@property (nonatomic,readonly) NSPersistentStoreCoordinator* sourceCoordinator;
+
+@property (nonatomic,readonly) NSPersistentStore* sourceStore;
+
+/*************************/
+
 /*判断数据是否需要迁移*/
 - (BOOL)isMigrationNecessaryForStore:(NSURL*)storeUrl;
 
@@ -86,4 +97,23 @@
  
    总结成一句话其实就是：创建MO使用MOC去监听，然后在操作完MO后，使用MOC 进行保存，将改变提交给PSC，然后PSC与数据库交互同步数据
  
+ */
+
+
+
+/*
+深拷贝的执行过程可以宏观的描述成下面几个步骤
+    1. 创建CoreDataImporter实例，创建时要提供NSDictionary，其中存有从实体名称到unique属性的映射，每个实体都要有这样一条映射。
+    2. 给CoreDataImporter实例传入NSArray，这个数组中包含了待复制的各实体名称，而CoreDataImporter实例会依次遍历这些名称，
+       并根据需要，把每个实体所对应的对象都拷贝到目标上下文中。
+    3. 假如目标上下文中没有与源上下文相等价的对象，那就新建托管对象，并将其插入目标上下文。新对象的各个属性值根据源对象来设置。
+    4. 如果源对象有'关系'，那就沿着关系找到相关的对象。然后根据需要，把那些相关对象拷贝到目标上下文里。
+    5. 如果某条关系涉及的全部对象都已拷贝到目标上下文之中，那就在副本对象和与之相关的其他副本对象之间重建关系
+ */
+
+
+/*
+ CoreData栈(Core Data stack) 这个术语是对持久化存储区，持久化存储协调器，托管对象模型以及托管对象上下文的合称。
+ 为了对源存储区实施深拷贝，我们需要再使用一套与目标存储区不同的Coredata栈。这样做的效果就相当于把深拷贝操作所涉及的源上下文和目标上下文区隔开了。
+ 两个栈之间的唯一的共性在于，他们都使用相同的托管对象模型。
  */

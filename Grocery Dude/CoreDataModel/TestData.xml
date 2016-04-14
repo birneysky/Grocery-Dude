@@ -1,0 +1,57 @@
+<items>
+    <item name="🌱🌱🌱🌱🌱🌱🌱🌱" quantity="80" unit="棵" locationathome="洗手间" locationatshop="绿植区"/>
+    <item name="🌲🌲🌲🌲🌲🌲🌲🌲" quantity="250" unit="棵" locationathome="花园" locationatshop="绿植区"/>
+    <item name="🌳🌳🌳🌳🌳🌳🌳" quantity="250" unit="棵" locationathome="花园" locationatshop="绿植区"/>
+    <item name="🌴🌴🌴🌴🌴🌴🌴" quantity="250" unit="棵" locationathome="花园" locationatshop="绿植区"/>
+    <item name="🌵🌵🌵🌵🌵🌵🌵" quantity="250" unit="棵" locationathome="花园" locationatshop="绿植区"/>
+    <item name="🍅🍅🍅🍅🍅🍅🍅" quantity="250" unit="g" locationathome="厨房" locationatshop="过道3"/>
+    <item name="🍆🍆🍆🍆🍆🍆🍆" quantity="250" unit="g" locationathome="厨房" locationatshop="过道3"/>
+    <item name="🍠🍠🍠🍠🍠🍠🍠" quantity="250" unit="g" locationathome="厨房" locationatshop="过道3"/>
+    <item name="🍇🍇🍇🍇🍇🍇🍇" quantity="250" unit="g" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🍈🍈🍈🍈🍈🍈🍈" quantity="250" unit="g" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🍰🍰🍰🍰🍰🍰🍰" quantity="250" unit="g" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🌷🌷🌷🌷🌷🌷🌷" quantity="250" unit="束" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🌲🌲🌲🌲🌲🌲🌲" quantity="250" unit="棵" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🍉🍉🍉🍉🍉🍉🍉" quantity="250" unit="g" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🍌🍌🍌🍌🍌🍌🍌" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍍🍍🍍🍍🍍🍍🍍" quantity="250" unit="g" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🍎🍎🍎🍎🍎🍎🍎" quantity="250" unit="g" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🍐🍐🍐🍐🍐🍐🍐" quantity="250" unit="g" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🍑🍑🍑🍑🍑🍑🍑" quantity="250" unit="g" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🍓🍓🍓🍓🍓🍓🍓" quantity="250" unit="g" locationathome="客厅" locationatshop="过道3"/>
+    <item name="🍔🍔🍔🍔🍔🍔🍔" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍖🍖🍖🍖🍖🍖🍖" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍗🍗🍗🍗🍗🍗🍗" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍘🍘🍘🍘🍘🍘🍘" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍧🍧🍧🍧🍧🍧🍧" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍨🍨🍨🍨🍨🍨🍨" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍯🍯🍯🍯🍯🍯🍯" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍭🍭🍭🍭🍭🍭🍭" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍶🍶🍶🍶🍶🍶🍶" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍹🍹🍹🍹🍹🍹🍹" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍺🍺🍺🍺🍺🍺🍺" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍻🍻🍻🍻🍻🍻🍻" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍼🍼🍼🍼🍼🍼🍼" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍬🍬🍬🍬🍬🍬🍬" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道3"/>
+    <item name="🍤🍤🍤🍤🍤🍤🍤" quantity="250" unit="g" locationathome="冰箱" locationatshop="过道5"/>
+    <item name="🎄🎄🎄🎄🎄🎄🎄" quantity="250" unit="g" locationathome="客厅" locationatshop="过道5"/>
+    <item name="🌺🌺🌺🌺🌺🌺🌺" quantity="250" unit="束" locationathome="卧室" locationatshop="过道5"/>
+    <item name="🌻🌻🌻🌻🌻🌻🌻" quantity="250" unit="束" locationathome="客厅" locationatshop="过道5"/>
+    <item name="🌼🌼🌼🌼🌼🌼🌼" quantity="250" unit="束" locationathome="客厅" locationatshop="过道5"/>
+    <item name="💐💐💐💐💐💐💐" quantity="250" unit="束" locationathome="客厅" locationatshop="过道5"/>
+    <item name="🌿🌿🌿🌿🌿🌿🌿" quantity="250" unit="束" locationathome="储藏室" locationatshop="过道8"/>
+    <item name="🌾🌾🌾🌾🌾🌾🌾" quantity="250" unit="g" locationathome="储藏室" locationatshop="过道8"/>
+    <item name="🍀🍀🍀🍀🍀🍀🍀" quantity="250" unit="g" locationathome="储藏室" locationatshop="过道8"/>
+    <item name="🍁🍁🍁🍁🍁🍁🍁" quantity="250" unit="g" locationathome="储藏室" locationatshop="过道8"/>
+    <item name="🍂🍂🍂🍂🍂🍂🍂" quantity="250" unit="g" locationathome="储藏室" locationatshop="过道8"/>
+    <item name="🍃🍃🍃🍃🍃🍃🍃" quantity="250" unit="g" locationathome="储藏室" locationatshop="过道8"/>
+    <item name="🐅🐅🐅🐅🐅🐅🐅" quantity="25" unit="头" locationathome="后广场" locationatshop="农贸区"/>
+    <item name="🐀🐀🐀🐀🐀🐀🐀" quantity="10" unit="只" locationathome="后广场" locationatshop="宠物区"/>
+    <item name="🐱🐱🐱🐱🐱🐱🐱" quantity="1" unit="只" locationathome="后广场" locationatshop="宠物区"/>
+    <item name="🐁🐁🐁🐁🐁🐁🐁" quantity="25" unit="只" locationathome="实验室" locationatshop="宠物区"/>
+    <item name="⚾️⚾️⚾️⚾️⚾️⚾️⚾️" quantity="1" unit="个" locationathome="器械室" locationatshop="体育用品区"/>
+    <item name="🚀🚀🚀🚀🚀🚀🚀" quantity="1" unit="枚" locationathome="前广场" locationatshop="航天局"/>
+    <item name="🚁🚁🚁🚁🚁🚁🚁" quantity="1" unit="个" locationathome="卧室" locationatshop="过道10"/>
+    <item name="🚲🚲🚲🚲🚲🚲🚲" quantity="2" unit="辆" locationathome="自行车棚" locationatshop="自行车区"/>
+    <item name="🚕🚕🚕🚕🚕🚕🚕" quantity="1" unit="辆" locationathome="车库" locationatshop="4S店"/>
+</items>

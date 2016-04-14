@@ -30,4 +30,13 @@
                                       attributeDict:(NSDictionary*)attributeDict
                                             context:(NSManagedObjectContext*)context;
 
+/*为了支持深拷贝，我们必须增强CoreDataImporterl类的功能，使其可以完成“拷贝托管对象”这种比较复杂的流程。
+ 还必须支持三种类型的关系，也就是一对一关系，一对多关系，以及有序的一对多关系。
+ 鉴于整个流程比较复杂，所以将其分解成几个部分。
+ */
+
+- (void)deepCopyEntities:(NSArray*)entities
+             fromContext:(NSManagedObjectContext*)sourceContext
+               toContext:(NSManagedObjectContext*)targetContext;
+
 @end
