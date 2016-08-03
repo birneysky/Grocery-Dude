@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //self.tableView.separatorColor = [UIColor redColor];
+    
+    //self.tableView.separatorEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
 }
 
 

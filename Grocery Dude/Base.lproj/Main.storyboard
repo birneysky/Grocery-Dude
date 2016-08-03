@@ -80,7 +80,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lmg-RK-tKe" id="FAS-lY-OHV">
                                     <rect key="frame" x="0.0" y="0.0" width="553" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="Dh2-Jc-XZs" kind="show" identifier="Show Item Segue" trigger="accessoryAction" id="g5l-N9-oQ0"/>
                                 </connections>
