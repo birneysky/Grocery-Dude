@@ -403,7 +403,6 @@
 				TargetAttributes = {
 					DBB725441B71ED5C0078CA1F = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = M7R5TQ8AQY;
 					};
 					DBB7255D1B71ED5C0078CA1F = {
 						CreatedOnToolsVersion = 6.4;
@@ -626,9 +625,9 @@
 				INFOPLIST_FILE = "Grocery Dude/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yy.H264;
+				PRODUCT_BUNDLE_IDENTIFIER = com.v2tech.commbarEnt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d2a4ac45-b3d7-483c-9965-b352d55724e7";
+				PROVISIONING_PROFILE = "722d399d-3e56-4a6a-9378-f29cda48e2bd";
 			};
 			name = Debug;
 		};
@@ -641,9 +640,9 @@
 				INFOPLIST_FILE = "Grocery Dude/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yy.H264;
+				PRODUCT_BUNDLE_IDENTIFIER = com.v2tech.commbarEnt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d2a4ac45-b3d7-483c-9965-b352d55724e7";
+				PROVISIONING_PROFILE = "722d399d-3e56-4a6a-9378-f29cda48e2bd";
 			};
 			name = Release;
 		};
